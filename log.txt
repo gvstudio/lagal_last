@@ -1,0 +1,22 @@
+<pre>object(stdClass)#193 (19) {
+  [&quot;id&quot;] =&gt; string(2) &quot;20&quot;
+  [&quot;login&quot;] =&gt; string(0) &quot;&quot;
+  [&quot;email&quot;] =&gt; string(19) &quot;ostap@gulaypole.com&quot;
+  [&quot;name&quot;] =&gt; string(46) &quot;Гуляйполе Иван Остапович&quot;
+  [&quot;lang&quot;] =&gt; string(0) &quot;&quot;
+  [&quot;role&quot;] =&gt; string(6) &quot;member&quot;
+  [&quot;table_rows&quot;] =&gt; string(2) &quot;20&quot;
+  [&quot;table_lang&quot;] =&gt; string(0) &quot;&quot;
+  [&quot;city_id&quot;] =&gt; string(2) &quot;96&quot;
+  [&quot;bday&quot;] =&gt; string(1) &quot;0&quot;
+  [&quot;bmonth&quot;] =&gt; string(1) &quot;0&quot;
+  [&quot;byear&quot;] =&gt; string(1) &quot;0&quot;
+  [&quot;sex&quot;] =&gt; string(1) &quot;0&quot;
+  [&quot;photo&quot;] =&gt; string(25) &quot;/img/132db3ddbe7b0e57.jpg&quot;
+  [&quot;phone&quot;] =&gt; string(5) &quot;12312&quot;
+  [&quot;phone_time&quot;] =&gt; string(3) &quot;123&quot;
+  [&quot;url&quot;] =&gt; string(7) &quot;mail.ru&quot;
+  [&quot;adress&quot;] =&gt; string(12) &quot;фввфыв&quot;
+  [&quot;count&quot;] =&gt; string(1) &quot;2&quot;
+}
+</pre>

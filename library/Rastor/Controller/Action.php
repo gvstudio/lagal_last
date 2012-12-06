@@ -58,6 +58,27 @@ class Rastor_Controller_Action extends Zend_Controller_Action {
         return $this->_config;
     }
 
+    public function preDispatch() {
+	$user = new Zend_Session_Namespace('Zend_Auth');
+	//
+	if ($user->storage != NULL) {
+	    unset($user->storage->topic_relations);
+	    $db = new Zend_Db_Table();
+	    $sql = 'SELECT * FROM `topic_relations` WHERE `user_id` = ' . $user->storage->id;
+	    $result = $db->getDefaultAdapter()->fetchAll($sql);
+	    foreach ($result as $key => $res) {
+		$user->storage->topic_relations[$key] = $res->question_id;
+	    }
+	    //мои события
+	    $sql2 = 'SELECT COUNT(*) as count FROM `actions` WHERE `to_id` =' . $user->storage->id;
+	    $count_actions = $db->getDefaultAdapter()->fetchOne($sql2);
+	    $user->storage->count_actions = $count_actions;
+	}
+	    
+	    //Zend_Debug::dump($user->storage);die;
+	parent::preDispatch();
+    }
+
 }
 
 ?>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>LEGALMAG</title>
+
+	<link rel="stylesheet" href="design/css/style.css">
+	<!--[if IE 7]><link rel="stylesheet" href="design/css/style_ie7.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" href="design/css/style_ie8.css" /><![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" href="design/css/style_ie9.css" /><![endif]-->
+	<link rel="stylesheet" href="design/css/jquery-ui-1.8.20.custom.css">
+	<link rel="stylesheet" href="design/css/jquery.ui.selectmenu.css">
+	<link rel="stylesheet" href="design/css/jquery.fancybox.css">
+
+	<script src="design/js/jquery-1.7.2.min.js"></script>
+	<!--[if lt IE 9]><script src="design/js/html5.js"></script><![endif]-->
+	<script src="design/js/custom.js"></script>
+</head>
+
+<body>
+	<section id="body">
+		<header><!--header-->
+			<div class="wrapper">
+				<a id="logo" href="index.html" title="LEGALMAG"></a>
+				<div id="logged">
+					Привет,&nbsp;<a class="enter" href="">Валентин!</a>
+					<a class="register" href="">Выйти</a>
+					<div class="sep"></div>
+				</div>
+				<nav class="auth"><!--top-navigation-->
+					<ul>
+						<li class="active"><a href="">Лента вопросов</a></li>
+						<li><a href="">Каталог</a></li>
+						<li><a href="">Личный кабинет</a></li>
+						<li ><a href="">Вопросы и ответы</a></li>
+						<li><a href="">Как это работает?</a></li>
+					</ul>
+				</nav><!--/top-navigation-->>
+			</div>
+		</header><!--/header-->
+
+		<div class="clear">&nbsp;</div>
+
+		<section id="content"><!--content-->
+			<div class="wrapper">
+				<aside id="left-col">
+					<div id="user">
+						<img src="design/img/noAvatar.png" alt="">
+						<p class="name">Валентин Кислый</p>
+						<a class="editProfile" href="">редактировать профиль</a>
+						<p class="myMessages"><a href="">Мои сообщения</a> (<span>3</span>)</p>
+					</div>
+					<div id="leftHelp">
+						<p>Заполните все поля, чтобы опубликовать вопрос.</p>
+						<p>Вы можете ваш вопрос платным. Вы сами определяете стоимость  вопроса.</p>
+						<p class="strong">Чем больше стоимость, тем больше внимания будет к вашему вопросу.</p>
+					</div>
+					<div id="offers">
+						<h2>Предлагаю услуги:</h2>
+						<dl>
+							<dt><img src="design/images/offers.jpg" alt=""></dt>
+							<dd class="name">Иванов Иван Сергеевич</dd>
+							<dd class="spec">Специалист по гражданскому и семейному праву</dd>
+							<dd><input type="submit" class="button-fox" value="Написать"></dd>
+							<dd class="clear none">&nbsp;</dd>
+						</dl>
+						<dl>
+							<dt><img src="design/images/offers.jpg" alt=""></dt>
+							<dd class="name">Иванов Иван Сергеевич</dd>
+							<dd class="spec">Специалист по гражданскому и семейному праву</dd>
+							<dd><input type="submit" class="button-fox" value="Написать"></dd>
+							<dd class="clear none">&nbsp;</dd>
+						</dl>
+						<dl>
+							<dt><img src="design/images/offers.jpg" alt=""></dt>
+							<dd class="name">Иванов Иван Сергеевич</dd>
+							<dd class="spec">Специалист по гражданскому и семейному праву</dd>
+							<dd><input type="submit" class="button-fox" value="Написать"></dd>
+							<dd class="clear none">&nbsp;</dd>
+						</dl>
+					</div>
+				</aside>
+				<section id="right-col">
+					<div class="headQuestion">
+						<p>Задайте свой вопрос</p>
+						<a href="">или опубликуйте работу для юристов</a>
+					</div>
+					<div id="tabs">
+						<ul>
+							<li><a href="#question">Вопрос</a></li>
+							<li><a href="#personalQuestion">Персональный вопрос</a></li>
+							<li><a href="#job">Работа</a></li>
+						</ul>
+						<div id="question">
+							<form>
+								<dl>
+									<dt><label for="question-head">Заголовок вопроса:</label></dt>
+									<dd>
+										<input type="text" id="question-head" name="question-head" required autofocus>
+										<span>Поле обязательно для заполнения</span>
+									</dd>
+									<dt><label for="question-situation">Опишите подробно ситуацию:</label></dt>
+									<dd>
+										<textarea id="question-situation" name="question-situation" required></textarea>
+										<span>Поле обязательно для заполнения</span>
+									</dd>
+									<dt>
+										Тема вопроса:
+										<span>Укажите тему: это поможет найти специалистов для вашей ситуации</span>
+									</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="radio" name="question-subj" value="question-privat" id="question-privat" >
+													<label for="question-privat" class="caption">Частный вопрос</label>
+												</li>
+												<li>
+													<input type="radio" name="question-subj" value="question-juridical" id="question-juridical">
+													<label for="question-juridical" class="caption">Вопрос о бизнесе</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+								 	<dt>
+										Вид вопроса:
+									</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="radio" name="question-fee" value="question-free" id="question-free" checked>
+													<label for="question-free" class="captionB">Бесплатный</label>
+												</li>
+												<li>
+													<input type="radio" name="question-fee" value="question-pay" id="question-pay">
+													<label for="question-pay"  class="captionB">Платный</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+								</dl>
+								<div class="buttonHolder">
+									<input type="submit" class="buttonClear" value="Очистить">
+									<input type="submit" class="buttonSendQuestion" value="Отправить вопрос">
+								</div>
+							</form>
+						</div>
+						<div id="personalQuestion">
+							<form>
+								<dl>
+									<dt><label for="personalQuestion-head">Заголовок вопроса:</label></dt>
+									<dd>
+										<input type="text" id="personalQuestion-head" name="personalQuestion-head" required autofocus>
+										<span>Поле обязательно для заполнения</span>
+									</dd>
+									<dt><label for="personalQuestion-situation">Опишите подробно ситуацию:</label></dt>
+									<dd>
+										<textarea id="personalQuestion-situation" name="personalQuestion-situation" required></textarea>
+										<span>Поле обязательно для заполнения</span>
+									</dd>
+									<dt>
+										Тема вопроса:
+										<span>Укажите тему: это поможет найти специалистов для вашей ситуации</span>
+									</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="radio" name="personalQuestion-subj" value="personalQuestion-privat" id="personalQuestion-privat">
+													<label for="personalQuestion-privat" class="caption">Частный вопрос</label>
+												</li>
+												<li>
+													<input type="radio" name="personalQuestion-subj" value="personalQuestion-juridical" id="personalQuestion-juridical">
+													<label for="personalQuestion-juridical" class="caption">Вопрос о бизнесе</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+								 	<dt>
+										Вид вопроса:
+									</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="radio" name="personalQuestion-fee" value="personalQuestion-free" id="personalQuestion-free">
+													<label for="personalQuestion-free" class="captionB">Бесплатный</label>
+												</li>
+												<li>
+													<input type="radio" name="personalQuestion-fee" value="personalQuestion-pay" id="personalQuestion-pay">
+													<label for="personalQuestion-pay"  class="captionB">Платный</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+								</dl>
+								<div class="buttonHolder">
+									<input type="submit" class="buttonClear" value="Очистить">
+									<input type="submit" class="buttonSendQuestion" value="Отправить вопрос">
+								</div>
+							</form>
+						</div>
+						<div id="job">
+							<form>
+								<dl>
+									<dt>Тип работы:</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="radio" name="job-subj" value="job-project" id="job-project" checked>
+													<label for="job-project" class="captionB">Проект</label>
+												</li>
+												<li>
+													<input type="radio" name="job-subj" value="job-contract" id="job-contract"
+													><label for="job-contract" class="captionB">Работа по трудовому договору</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+								 	<dt>Описание проекта:</dt>
+									<dd>
+										<textarea id="job-summary" name="job-summary"></textarea>
+									</dd>
+									<dt>Требование к исполнителю проекта:</dt>
+									<dd>
+										<textarea id="job-tech" name="job-tech"></textarea>
+									</dd>
+									<dt>Специализация юриста:</dt>
+									<dd>
+										<div class="field">
+											<ul>
+												<li>
+													<input type="checkbox" name="job_checkbox__1" id="job_checkbox__1">
+													<label for="job_checkbox__1" class="captionC">Бесплатный</label>
+												</li>
+												<li>
+													<input type="checkbox" name="job_checkbox__2" id="job_checkbox__2">
+													<label for="job_checkbox__2" class="captionC">Платный</label>
+												</li>
+												<li>
+													<input type="checkbox" name="job_checkbox__3" id="job_checkbox__3">
+													<label for="job_checkbox__3" class="captionC">Бесплатный</label>
+												</li>
+												<li>
+													<input type="checkbox" name="job_checkbox__4" id="job_checkbox__4">
+													<label for="job_checkbox__4" class="captionC">Платный</label>
+												</li>
+												<li>
+													<input type="checkbox" name="job_checkbox__5" id="job_checkbox__5">
+													<label for="job_checkbox__5" class="captionC">Бесплатный</label>
+												</li>
+												<li>
+													<input type="checkbox" name="job_checkbox__6" id="job_checkbox__6">
+													<label for="job_checkbox__6" class="captionC">Платный</label>
+												</li>
+											</ul>
+										</div>
+									</dd>
+									<dt>Требуемый опыт работы:</dt>
+									<dd>
+										<select class="job-experience">
+											<option>1 год</option>
+											<option>2 года</option>
+											<option>5 лет</option>
+										</select>
+									</dd>
+									<dt>Зарплата:</dt>
+									<dd>
+										<div class="job-amount">
+											<input type="text" class="amount" maxlength="5" placeholder="100">
+											<p>рублей</p>
+										</div>
+									</dd>
+									<dt>Регион:</dt>
+									<dd>
+										<select class="job-region">
+											<option>Регион</option>
+											<option>Регион</option>
+											<option>Регион</option>
+											<option>Регион</option>
+											<option>Регион</option>
+										</select>
+									</dd>
+								</dl>
+								<div class="buttonHolder">
+									<input type="submit" class="buttonClear" value="Очистить">
+									<input type="submit" class="buttonSendQuestion" value="Отправить вопрос">
+								</div>
+							</form>
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+				</section>
+									 <div id="selectionChoose">
+										<div class="head">
+											&laquo;&nbsp;<a href="">Назад</a>
+										</div>
+										<div class="body">
+											<ul>
+												<li>
+													<input type="checkbox" name="checkbox__1" id="checkbox__1">
+													<label for="checkbox__1">Семья</label>
+													<span>брак, имущество супругов, алименты, и другие вопросы</span>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox__2" id="checkbox__2">
+													<label for="checkbox__2">Труд. Занятость</label>
+													<span>трудоустройство и увольнение, заработная плата, гарантии прав работников, и другие вопросы</span>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox__3" id="checkbox__3">
+													<label for="checkbox__3">Частный вопрос</label>
+													<span>Подпункт, Подпункт, Подпункт, Подпункт</span>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox__4" id="checkbox__4">
+													<label for="checkbox__4">Частный вопрос</label>
+													<span>Подпункт, Подпункт, Подпункт, Подпункт</span>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox__5" id="checkbox__5">
+													<label for="checkbox__5">Частный вопрос</label>
+													<span>Подпункт, Подпункт, Подпункт, Подпункт</span>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox__6" id="checkbox__6">
+													<label for="checkbox__6">Частный вопрос</label>
+													<span>Подпункт, Подпункт, Подпункт, Подпункт</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+			</div>
+		</section><!--/content-->
+
+	<div class="clear">&nbsp;</div>
+	<div id="rasporka"></div>
+
+	</section><!--/body-wrapper-->
+
+	<footer><!--footer-->
+		<section class="wrapper">
+			<div class="left-col">
+				<p>&copy; Legalmag, 2012</p>
+				<p>Все права защищены.</p>
+				<p style="margin: 20px 0 5px 0;"><a href="">Условия использования</a></p>
+				<a href="">Регламент техподдержки</a>
+			</div>
+			<div class="right-col">
+				<nav>
+					<ul>
+						<li><a href="">О проекте </a></li>
+						<li><a href="">Условия использования</a></li>
+						<li class="active"><a href="">Для инвесторов</a></li>
+						<li><a href="">Безопасность </a></li>
+						<li><a href="">Контакты</a></li>
+					</ul>
+				</nav>
+				<div id="paySystems"></div>
+			</div>
+		</section>
+	</footer><!--/footer-->
+
+</body>
+</html>
