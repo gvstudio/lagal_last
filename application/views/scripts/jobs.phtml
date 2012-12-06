@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+    </head>
+    <body>
+        <section id="body">
+            <?php echo $this->partial('inc.header.phtml'); ?>
+            <div class="clear">&nbsp;</div>
+
+            <section id="content"><!--content-->
+                <div class="wrapper">
+                    <aside id="left-col">
+                        <?php echo $this->action('leftuserpanel', 'index', 'users'); ?>
+                        <div id="post">
+                            <div>
+                                <img src="design/img/leftOne.png" alt="">
+                                    <a class="head" href="">Задать вопрос</a>
+                                    <p>Ваш вопрос будет доступен всем юристам</p>
+                            </div>
+                            <div>
+                                <img src="design/img/leftTwo.png" alt="">
+                                    <a class="head" href="">Персональный вопрос</a>
+                                    <p>Вы сожете выбрать кто будет отвечать на Ваш вопрос</p>
+                            </div>
+                            <div>
+                                <img src="design/img/leftThree.png" alt="">
+                                    <a class="head" href="">Предложить работу</a>
+                                    <p>Вы можете опубликовать вакансию, или разовую работу для юристов</p>
+                            </div>
+                            <div id="leftSay"></div>
+                        </div>
+                        <div id="offers">
+                            <h2>Предлагаю услуги:</h2>
+                            <dl>
+                                <dt><img src="design/images/offers.jpg" alt=""></dt>
+                                <dd class="name">Иванов Иван Сергеевич</dd>
+                                <dd class="spec">Специалист по гражданскому и семейному праву</dd>
+                                <dd><input type="submit" class="button-fox" value="Написать"></dd>
+                                <dd class="clear none">&nbsp;</dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="design/images/offers.jpg" alt=""></dt>
+                                <dd class="name">Иванов Иван Сергеевич</dd>
+                                <dd class="spec">Специалист по гражданскому и семейному праву</dd>
+                                <dd><input type="submit" class="button-fox" value="Написать"></dd>
+                                <dd class="clear none">&nbsp;</dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="design/images/offers.jpg" alt=""></dt>
+                                <dd class="name">Иванов Иван Сергеевич</dd>
+                                <dd class="spec">Специалист по гражданскому и семейному праву</dd>
+                                <dd><input type="submit" class="button-fox" value="Написать"></dd>
+                                <dd class="clear none">&nbsp;</dd>
+                            </dl>
+                        </div>
+                    </aside>
+                    <section id="right-col">
+                        <?php echo $this->layout()->content; ?>
+                    </section>
+                </div>
+            </section><!--/content-->
+
+            <div class="clear">&nbsp;</div>
+            <div id="rasporka"></div>
+
+        </section><!--/body-wrapper-->
+
+        <?php echo $this->partial('inc.footer.phtml'); ?>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<div id="askform">
+
+<?php echo $this->action('get', 'index', 'content', array('id' => 2)); ?>
+    <p class="form-title">Задать вопрос</p>
+    <?php echo $this->form; ?>
+    <div class="clear">&nbsp;</div>
+</div>
+<script>
+    $('.buttonAsk').parent().before('<dt>Поля отмеченные *<br/>обязательны для заполнения</dt>')
+</script>
+
+<script>
+    //good-looking fit-to-area error displaying
+    $('ul.error').map(function(){
+
+	$(this).hide();
+	$('[name="'+$(this).data("element")+'"]').parent().append('<span style="color:red">'+$(this).data("message")+'</span>');
+    });
+</script>

@@ -1,0 +1,42 @@
+<div id="loginpanel" class="popup" style="display:none;">
+    <div class="head">
+        <span>Вход в систему</span>
+        <img src="/design/img/logoSmall.png" alt="LEGALMAG">
+    </div>
+    <div class="body">
+        <form>
+            <div class="form">
+                <dl>
+                    <dt><label for="email">Электронная почта:</label></dt>
+                    <dd><input type="email" name="email" id="form161-email" autofocus></dd>
+                    <dt><label for="password">Пароль:</label></dt>
+                    <dd><input type="password" name="password" id="form161-password"></dd>
+                    <dt></dt>
+                    <dd><input type="checkbox" name="remember" id="form161-rememberme"><label for="remember">Запомнить меня</label></dd>
+                </dl>
+            </div>
+            <div class="buttonHolder4">
+                <input type="button" class="buttonSendMessage" id="loginButton" value="Войти в систему">
+                <a href="<?php echo Rastor_Url::get('registration'); ?>">Зарегистрироваться в системе</a>
+                <a href="">Забыли пароль</a>
+                <div class="clear">&nbsp;</div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $('#loginButton').unbind("click").click(function(){
+            if (!$('#loginpanel .form .form-error').size()) {
+                $.get('<?php echo Rastor_Url::get('login_result'); ?>', $('#loginpanel form').serializeArray(), function(data){
+                    if (data == '1') {
+                        document.location = '<?php echo Rastor_Url::get('default'); ?>';
+                    } else {
+                        $('#loginpanel .form').append('<div class="form-error">Вы ввели неверный пароль или адрес электронной почты</div>');
+                        $('#loginpanel .form .form-error').fadeOut(3000, function() {
+                            $(this).remove();
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</div>

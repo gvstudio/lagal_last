@@ -1,0 +1,81 @@
+<form>
+    <dl>
+        <dt>Тип работы:</dt>
+        <dd>
+            <div class="field">
+                <ul>
+                    <li>
+                        <input type="radio" name="job-subj" value="job-project" id="job-project" checked>
+                        <label for="job-project" class="captionB">Проект</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="job-subj" value="job-contract" id="job-contract"
+                               ><label for="job-contract" class="captionB">Работа по трудовому договору</label>
+                    </li>
+                </ul>
+            </div>
+        </dd>
+        <dt>Описание проекта:</dt>
+        <dd>
+            <textarea id="job-summary" name="job-summary"></textarea>
+        </dd>
+        <dt>Требование к исполнителю проекта:</dt>
+        <dd>
+            <textarea id="job-tech" name="job-tech"></textarea>
+        </dd>
+        <dt>Специализация юриста:</dt>
+        <dd>
+            <div class="field">
+                <ul>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__1" id="job_checkbox__1">
+                        <label for="job_checkbox__1" class="captionC">Бесплатный</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__2" id="job_checkbox__2">
+                        <label for="job_checkbox__2" class="captionC">Платный</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__3" id="job_checkbox__3">
+                        <label for="job_checkbox__3" class="captionC">Бесплатный</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__4" id="job_checkbox__4">
+                        <label for="job_checkbox__4" class="captionC">Платный</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__5" id="job_checkbox__5">
+                        <label for="job_checkbox__5" class="captionC">Бесплатный</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="job_checkbox__6" id="job_checkbox__6">
+                        <label for="job_checkbox__6" class="captionC">Платный</label>
+                    </li>
+                </ul>
+            </div>
+        </dd>
+        <dt>Требуемый опыт работы:</dt>
+        <dd>
+            <select class="job-experience">
+                <option>1 год</option>
+                <option>2 года</option>
+                <option>5 лет</option>
+            </select>
+        </dd>
+        <dt>Зарплата:</dt>
+        <dd>
+            <div class="job-amount">
+                <input type="text" class="amount" maxlength="5" placeholder="100">
+                <p>рублей</p>
+            </div>
+        </dd>
+        <dt>Регион:</dt>
+        <dd>
+            <?php echo $this->FormSelect('a', null, array('class' => 'job-region'), $this->cities); ?>
+        </dd>
+    </dl>
+    <div class="buttonHolder">
+        <input type="submit" class="buttonClear" value="Очистить">
+        <input type="submit" class="buttonSendQuestion" value="Отправить вопрос">
+    </div>
+</form>

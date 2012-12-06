@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+    </head>
+    <body>       
+	<section id="body">
+		<header><!--header-->
+			<div class="wrapper">
+				 <a id="logo" href="/" title="LEGALMAG"></a>
+        		 <?php echo $this->action('userpanel', 'index', 'users'); ?>
+				<nav class="auth"><!--top-navigation-->
+					<div id="breadcrumbs">
+						<ul>
+							<li><a href="">Главная страница</a></li>
+							<li><?php echo $this->action('getcrumbs', 'index', 'content'); ?></li>
+						</ul>
+				</div>	
+				</nav><!--/top-navigation-->
+			</div>
+		</header><!--/header-->
+
+		<div class="clear">&nbsp;</div>
+
+		<section id="content"><!--content-->
+			<div class="wrapper">
+				<div id="left-col">
+					<div id="post">
+						<ul>
+							<li><a href="/glavnaya.html">Главная</a></li>
+							<li><a href="/o_kompanii.html">О компании</a></li>
+							<li class="active"><a href="">Правовые документы</a>
+								<ul>
+									<li><a href="/polzovatelskoe_soglashenie.html">Пользовательское соглашение</a></li>
+									<li><a href="/politika_konfidentsialnosti.html">Политика конфиденциальности</a></li>
+									<li><a href="/oferta_okazaniya_reklamnyih_uslug.html">Оферта оказания рекламных услуг</a></li>
+								</ul>
+							</li>
+							<li><a href="/dlya_investorov.html">Для инвесторов</a></li>
+							<li><a href="/bezopasnost.html">Безопасность</a></li>
+							<li><a href="/kontaktyi.html">Контакты</a></li>
+						</ul>
+					</div>
+				</div>
+				<section id="right-col">
+					<?php echo $this->layout()->content; ?>
+				</section>
+			</div>
+		</section><!--/content-->
+
+	<div class="clear">&nbsp;</div>
+	<div id="rasporka"></div>
+
+	</section><!--/body-wrapper-->
+
+	<?php echo $this->partial('inc.footer.phtml'); ?>
+
+</body>
+</html>

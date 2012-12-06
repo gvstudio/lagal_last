@@ -1,0 +1,15 @@
+<?php if ($this->auth->hasIdentity()) { ?>
+    <div id="user">
+        <img src="<?php echo $this->auth->getIdentity()->photo; ?>" alt="">
+        <p class="name"><?php echo $this->auth->getIdentity()->name;?></p>
+        <a class="editProfile" href="<?php echo Rastor_Url::get('profile_edit'); ?>">редактировать профиль</a>
+        <p class="myMessages"><a href="/messages">Мои сообщения</a> (<span><?php echo $this->auth->getIdentity()->count; ?></span>)</p>
+    </div>
+<?php } else { ?>
+    <div id="userRegister">
+        <a href="<?php echo Rastor_Url::get('registration'); ?>">
+            Зарегистрироваться »<br>
+            <span>и задать вопрос</span>
+        </a>
+    </div>
+<?php } ?>

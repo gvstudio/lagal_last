@@ -1,0 +1,37 @@
+<p class="headTitle">Так будет выглядеть ваше сообщение</p>
+<div class="question">
+    <table>
+        <tr>
+            <td rowspan="2" class="first">
+                <p  class="qSubscribe"></p>
+                <span>3</span>
+                <a href="">Подписаться</a>
+            </td>
+            <td class="title"><a href="<?php //echo Rastor_Url::get('question_view', array('id' => $record->id)); ?>"><?php echo $this->record['name']; ?></a></td>
+        </tr>
+        <tr>
+            <td class="text"><?php  echo $this->record['content']; ?></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><?php if ($this->record['paid']) { ?><p class="price"><?php echo $this->record['price']; ?></p><?php } ?></td>
+            <td class="place">Месторасположение: <strong><?php echo $this->auth->getIdentity()->adress; ?></strong></td>
+        </tr>
+        <?php if (count($this->tags[$record->id])) { ?>
+            <tr>
+                <td class="tags">Теги: <?php echo implode(', ', $this->tags[$record->id]) ?></td>
+            </tr>
+        <?php } ?>
+    </table>
+    <div class="summary">
+        <p class="time"><?php //echo $this->RastorDate($record->date); ?> назад</p>
+        <p class="views"><?php echo $record->views . ' ' . $this->translate(array('просмотр', 'просмотра', 'просмотров', 0, 'ru')); ?> 0</p>
+        <p class="answers"><?php echo $record->answers . ' ' . $this->translate(array('ответ', 'ответа', 'ответов', 0, 'ru')); ?> 0</p>
+        <p class="author">Автор: <a href="/user/<?php echo $this->auth->getIdentity()->id; ?>"><?php echo $this->auth->getIdentity()->name; ?></a></p>
+        <p class="privatMessage"><a href="messageto/<?php echo $this->auth->getIdentity()->id; ?>">личное сообщение</a></p>
+    </div>
+    <div class="clear ">&nbsp;</div>
+</div>
+<div class="buttonHolder2">
+    <a href="/question/edit" class="buttonEdit cl">edit</a>
+    <a href="/question/publish" class="buttonPublish cl">publish</a>
+</div>

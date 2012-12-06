@@ -1,0 +1,41 @@
+					<?php //Zend_Debug::dump($this->lawyers); //die;?>
+					<section id="center">
+						<p>Legalmag предлагает направить ваш вопрос следующим 10 юристам. Если какой-то кандидат вам не подходит, вы можете удалить его из списка, либо заменить другим кандидатом.</p>
+						<div class="wrapper">
+							
+							<?php $count = count($this->lawyers); //Zend_Debug::dump($this->lawyers[0]->name); //echo "dfdf ".$count;die;  
+								  for($i=0;$i<$count;$i++)
+								  {						
+							?>
+							<div class="lawyer">
+								<div class="left">
+									<div class="img">
+				<?		/*photo*/	?>	<?php if(empty($this->lawyers[$i]->photo)){ ?>									
+											<a href=""><img src="/design/images/face.jpg" alt=""></a>								
+										<?php } else{ ?>
+											<a href=""><img src="<?php echo $this->lawyers[$i]->photo; ?>" alt=""></a>
+				<?		/*end photo*/?> <?php } ?>
+									</div>
+									<a href=""><?php echo $this->lawyers[$i]->name; ?></a>
+									<div class="rating">
+										<img src="/design/images/stars.png" alt="">
+									</div>
+									<p>Местоположение: Москва</p>
+									<p>Специализация: <a href="">семейное право</a></p>
+								</div>
+								<div class="right">
+									<a class="delete" href="">Удалить</a>
+									<a class="change" href="">Заменить</a>
+								</div>
+								<div class="clear">&nbsp;</div>
+							</div>
+							<?php } ?>
+			         		</div>
+			         		<a href="/question/personalsave" class="buttonPublishTo cl" >Опубликовать&nbsp;&raquo;</a>
+			         	</section>
+			         	<aside>
+			         		<a href="/question/personalsave" class="buttonPublishTo cl" >Опубликовать&nbsp;&raquo;</a>
+			         	</aside>
+				</section>
+			</div>
+

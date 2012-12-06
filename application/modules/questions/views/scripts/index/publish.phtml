@@ -1,0 +1,23 @@
+<div class="questionWrapper">
+	<div class="thankYouHead">
+		<p class="first">Спасибо за Ваш вопрос!</p>
+		<p>вопрос будет опубликован и доступен для всех юристов на Legalmag</p>
+	</div>
+	<div class="thankYouBody">
+		<p class="first">Вы можете задать персональный вопрос.</p>
+		<p><a href="/catalog">Нажмите здесь</a>, если хотите выбрать юристов, которым будет направлен этот вопрос. Более чем на 90% персональных вопросов ответ приходит в течении 48 часов.</p>
+	</div>
+</div>
+<div class="wrapper2">
+	<p class="first">Вы можете перевести свой вопрос в категорию платных.</p>
+	<p>Вы сами определяете желаемую стоимость вопроса, а юрист отвечает на него</p>
+	<div class="job-amount m30">
+		<p class="text">Укажите желаемую стоимость:</p>
+		<form action="/topay/<?php echo $this->idQ->id; ?>" method="post">
+			<input type="text" name="money" class="amount" maxlength="5" placeholder="100">
+			<p>рублей</p>
+			<input type="submit" class="buttonPay" value="Оплатить">
+		</form>
+	</div>
+</div>
+

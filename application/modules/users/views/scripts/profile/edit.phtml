@@ -1,0 +1,37 @@
+<div class="head">
+    Редактировать профиль
+</div>
+<div class="personalInfo">
+    <form method="post" enctype="multipart/form-data"> 
+        <p class="title">Личная информация</p>
+        <dl>
+            <?php echo $this->personalInfoForm->name; ?>
+            <?php echo $this->personalInfoForm->sex; ?>
+            <dt>Дата рождения:</dt>
+            <dd>
+                <?php echo $this->personalInfoForm->bday; ?>
+                <?php echo $this->personalInfoForm->bmonth; ?>
+                <?php echo $this->personalInfoForm->byear; ?>
+            </dd>
+        </dl>
+        <div class="clear">&nbsp;</div>
+        <p class="title">Фотография</p>
+        <div class="img">
+            <?php if ($this->auth->getIdentity()->photo) { ?>
+                <img src="<?php echo $this->auth->getIdentity()->photo; ?>" alt="">
+            <?php } else { ?>
+                <img src="/design/images/faceHuge.jpg" alt="">
+            <?php } ?>
+        </div>
+        <div class="customInputFile">
+            <input type="file" name="photo" class="photoInput" onchange="document.getElementById('fileName').value=this.value">
+            <div class="photoInputBg"></div>
+            <input type="text" class="inputField" readonly="readonly" id="fileName">
+        </div>
+        <p class="inputCaption">Размер файла не должен превышать 3 Мб!</p>
+        <div class="clear">&nbsp;</div>
+        <input type="submit" class="buttonSave" value="Сохранить">
+    </form>
+    <p class="title">Пароль</p>
+    <?php echo $this->changePasswordForm; ?>
+</div>

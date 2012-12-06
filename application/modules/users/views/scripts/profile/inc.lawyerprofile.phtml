@@ -1,0 +1,99 @@
+				<div class="lawyerBox">
+					<div class="left">
+						<div class="img">
+							<img src="<?php echo $this->user->photo; ?>" alt="">
+						</div>
+						<div class="line">
+							<h2><?php echo $this->user->name; ?></h2>
+							<h3><?php echo $this->user->prof_status; ?></h3>
+						</div>
+						<p class="strong"><?php echo $this->user->adress; ?></p>
+						<a href="" target="_blank">Показать на карте</a>
+						<a href="" target="_blank"><?php echo $this->user->url; ?></a>
+						<p><strong>Телефоны:</strong> <?php echo $this->user->phone." ".$this->user->phone_time;?></p>
+					</div>
+					<div class="center">
+						<h4>Специализация:</h4>
+						<ul>
+							<?php foreach ($this->user->spec as $value) {
+								echo '<li>'.$value->spec.'</li>';							}
+							?>
+						</ul>
+					</div>
+					<div class="right">
+						<h4>Статистика на сайте:</h4>
+						<ul>
+							<li>Последнее посещение 03.12.2010</li>
+							<li>Дано ответов на вопросы: 15</li>
+							<li>Рейтинг:  <img src="/design/images/5stars.png" alt=""></li>
+							<li>Голосов:5</li>
+							<li>Проголосовать: <img src="/design/images/0stars.png" alt=""></li>
+						</ul>
+					</div>
+					<div class="clear">&nbsp;</div>
+				</div>
+				<a class="buttonSendQuestion" href="/message/<?php echo $this->user->id;?>">Написать сообщение</a>
+				<img src="/design/images/social-share.jpg" alt="" style="float:right;*margin: -25px 0 0 0;">
+				<div class="specs">
+					<div class="left">
+						<div class="head">Резюме</div>
+						<div class="shape">
+							<table>
+								<tbody><tr>
+									<td class="td">Опыт работы:</td>
+									<td><?php echo $this->user->expir;?> </td>
+								</tr>
+								<tr>
+									<td class="td">Место работы:</td>
+									<td><?php echo $this->user->job;?></td>
+								</tr>								
+								<tr>
+									<td class="td">Членство в адвокатском объединении:</td>
+									<td>Краснодарская краевая коллегия адвокатов</td>
+								</tr>
+								<tr style="border-bottom-width: 0px; border-bottom-style: initial; border-bottom-color: initial; ">
+									<td class="td">Номер в реестре адвокатов:</td>
+									<td><?php echo $this->user->number;?></td>
+								</tr>
+							</tbody></table>
+						</div>
+						<div class="shape2">
+							<table>
+								<tbody><tr>
+									<td class="td">Образование:</td>
+									<td><?php echo $this->user->univer;?> </td>
+								</tr>
+								<tr>
+									<td class="td">Образовательное учреждение:</td>
+									<td>Краснодарская краевая коллегия адвокатов</td>
+								</tr>								
+							</tbody></table>
+						</div>
+						<div class="shape2">
+							<h2>Достижения</h2>
+							<div><?php echo $this->user->achieve;?></div>
+						</div>
+					</div>
+					<div class="right">
+						<div class="head">Услуги:</div>
+						<div class="shape">
+							<ul>
+								<?php
+									foreach ($this->services as $service) {
+										?>
+										<li>
+											<p><?php echo $service->name ?></p>
+											<button class="buttonLawyerPrice">от <?php echo $service->price ?></button>
+										</li>
+										<?php
+									}
+								?>								
+							</ul>
+						</div>
+					</div>
+					<div class="clear">&nbsp;</div>
+					
+				</div>
+				
+
+			

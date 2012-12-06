@@ -1,0 +1,27 @@
+<div class="wrapper profile">
+   <div class="head">
+		<ul id="mailHead">
+			<li>Мои сообщения</li>
+			<li></li>
+			<li><a href="" class="mailInboxDisabled">Полученные сообщения</a></li>
+			<li><a href="" class="mailOut">Отправленные сообщения</a></li>
+		</ul>
+		<div class="clear">&nbsp;</div>
+	</div>
+</div>
+<?php foreach ($this->messages as $message) { ?>
+<div class="newMessage">
+	<input type="checkbox" name="" checked>
+	<div class="left">
+		<img src="<?php echo $message->photo ?>" alt="">
+		<a href="/user/<?php echo $message->id ?>"><?php echo $message->name ?></a>
+		<p class="mailDate"><?php echo $message->date ?></p>
+	</div>
+	<div class="right">
+		<p><strong><?php echo $message->title ?></strong></p>
+		<p><?php echo $message->text ?></p>
+		<a class="delete" href="">Удалить</a>
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+<?php } ?>

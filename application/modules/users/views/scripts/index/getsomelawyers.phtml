@@ -1,0 +1,9 @@
+<?php foreach($this->lawyers as $lawyer) { ?>
+<dl>
+	<dt><img src="<?php echo $lawyer->photo ?>" alt=""></dt>
+	<dd class="name"><a href="/user/<?php echo $lawyer->id; ?>"><?php echo $lawyer->name ?></a></dd>
+	<dd class="spec"><?php echo $lawyer->spec ?></dd>
+	<dd><a href="/user/<?php echo $lawyer->id ?>"  class="button-fox" >Написать</a></dd>
+	<dd class="clear none">&nbsp;</dd>
+</dl>
+<?php } ?>

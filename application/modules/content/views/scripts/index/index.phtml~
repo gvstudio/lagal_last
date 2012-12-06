@@ -1,0 +1,6 @@
+
+<div class="about">
+	
+    <h2><? php echo $this->content->name; ?></h2>
+    <?php echo $this->content->content; ?>
+</div>

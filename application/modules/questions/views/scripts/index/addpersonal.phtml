@@ -1,0 +1,110 @@
+<?php //echo $this->form;     ?>
+<form id="personalquestionForm" method="post" action="/question/addpersonal">
+    <dl>
+        <?php echo $this->form->name; ?>
+        <?php echo $this->form->content; ?>
+        <dt>
+        Тема вопроса:
+        <span>Укажите тему: это поможет найти специалистов для вашей ситуации</span>
+        </dt>
+        <dd>
+            <div class="field first">
+                <ul>
+                    <li>
+                        <input type="radio" name="type" value="0" id="question-privat" >
+                        <label for="question-privat" class="caption">Частный вопрос</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="type" value="1" id="question-juridical">
+                        <label for="question-juridical" class="caption">Вопрос о бизнесе</label>
+                    </li>
+                </ul>
+            </div>
+            <div id="selectionChoose" class="selectionChoose">
+                <div class="head">
+                    «&nbsp;<a href="" class="backlink">Назад</a>
+                </div>
+                <div class="body first">
+                    <ul>
+                        <?php foreach ($this->tags1 as $tag) { ?>
+                            <li>
+                                <input type="checkbox" name="tag_<?php echo $tag->id; ?>" id="checkbox_<?php echo $tag->id; ?>">
+                                <label for="tag_<?php echo $tag->id; ?>"><?php echo $tag->name; ?></label>
+                                <p class="description"><?php echo $tag->categories; ?></p>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <div class="body second">
+                    <ul>
+                        <?php foreach ($this->tags2 as $tag) { ?>
+                            <li>
+                                <input type="checkbox" name="tag_<?php echo $tag->id; ?>" id="checkbox_<?php echo $tag->id; ?>">
+                                <label for="tag_<?php echo $tag->id; ?>"><?php echo $tag->name; ?></label>
+                                <p class="description"><?php echo $tag->categories; ?></p>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </dd>
+        <?php echo $this->form->paid; ?>
+        <div class="paidBlock">
+            <dt>Стоимость вопроса:</dt>
+            <dd>
+                <div class="question-amount">
+                    <div class="slider1"></div>
+                    <?php echo $this->form->price; ?>
+                    <p>рублей</p>
+                    <ul>
+                        <li class="easy">Простой вопрос</li>
+                        <li class="normal">Обычный вопрос</li>
+                        <li class="hard">Сложный вопрос</li>
+                    </ul>
+                </div>
+            </dd>
+        </div>
+        <?php echo $this->form->user_name; ?>
+        <?php echo $this->form->user_email; ?>
+        <?php echo $this->form->city_id; ?>
+    </dl>
+    <div class="buttonHolder">
+        <input type="submit" class="buttonClear" value="Очистить">
+        <input type="submit" class="buttonSendQuestion" value="Отправить вопросadas">
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#personalquestionForm .selectionChoose').hide();
+        $('#personalquestionForm .selectionChoose .body').hide();
+        if ($('#personalquestionForm input[name=paid]').val() == '0') {
+                $('#personalquestionForm .paidBlock').hide();
+            }
+        
+        $('#personalquestionForm input[name=type]').change(function(){
+            $('#personalquestionForm .field.first').hide();
+            $('#personalquestionForm .selectionChoose').show();
+            if ($(this).val() == '0') {
+                $('#personalquestionForm .selectionChoose .body.first').show();
+            } else {
+                $('#personalquestionForm .selectionChoose .body.second').show();
+            }
+        });
+        
+        $('#personalquestionForm .backlink').click(function(){
+            $('#personalquestionForm .selectionChoose').hide();
+            $('#personalquestionForm .selectionChoose .body').hide();
+            $('#personalquestionForm .field.first').show();
+            $('#personalquestionForm input[name=type]').attr('checked', false);
+            return false;
+        });
+        
+        $('#personalquestionForm input[name=paid]').change(function(){
+            if ($(this).val() == '1') {
+                $('#personalquestionForm .paidBlock').show();
+            } else {
+                $('#personalquestionForm .paidBlock').hide();
+            }
+        });
+    });
+</script>

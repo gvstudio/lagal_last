@@ -1,0 +1,124 @@
+<div class="wrapper">
+    <div class="head">
+        <span>Ответить на вопрос</span>
+    </div>
+    <section class="body visible">
+        <div class="question">
+            <table>
+                <tr>
+                    <td rowspan="2" class="first">
+                        <p  class="qSubscribe"></p>
+                        <span>3</span>
+                        <a href="">Подписаться</a>
+                    </td>
+                    <td class="title"><a href="<?php echo Rastor_Url::get('question_view', array('id' => $this->record->id)); ?>"><?php echo $this->record->name; ?></a></td>
+                </tr>
+                <tr>
+                    <td class="text"><?php echo $this->record->content; ?></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><?php if ($record->price > 0) { ?><p class="price"><?php echo $record->price; ?></p><?php } ?></td>
+                    <td class="place">Месторасположение: <strong><?php echo $this->record->user_city; ?></strong></td>
+                </tr>
+                <?php if (count($this->tags)) { ?>
+                <tr>
+                    <td class="tags">Теги: <?php echo implode(', ', $this->tags) ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+            <div class="summary">
+                <p class="time"><?php echo $this->RastorDate($this->record->date); ?> назад</p>
+                <p class="views"><?php echo $this->record->views.' '.$this->translate(array('просмотр', 'просмотра', 'просмотров', $this->record->views, 'ru')); ?></p>
+                <p class="answers"><?php echo $this->record->answers.' '.$this->translate(array('ответ', 'ответа', 'ответов', $this->record->answers, 'ru')); ?></p>
+                <p class="author">Автор: <a href="<?php echo $this->record->user_id; ?>"><?php echo $this->record->user_name; ?></a></p>
+                <p class="privatMessage"><a href="messageto/<?php echo $this->record->user_id; ?>">личное сообщение</a></p>
+            </div>
+            <div class="clear ">&nbsp;</div>
+        </div>
+    </section>
+</div>
+<div class="answerQuestion">
+    <form>
+        <h3><label for="answerQuestion-field">Ответить на вопрос:</label></h3>
+        <input type="submit" class="buttonCloseQuestion" value="Зарыть вопрос и распределить оплату">
+        <textarea name="answerQuestion-field" id="answerQuestion-field" autofocus></textarea>
+        <div class="buttonHolder6">
+            <input type="submit" class="buttonPublish" value="Опубликовать">
+            <div class="recommend">
+                <span>Рекомендовать страницу:</span>
+                <img src="design/images/recommend.jpg" alt="">
+            </div>
+        </div>
+    </form>
+</div>
+<section id="questionAnswers">
+    <h3>Ответы: <span>(12)</span></h3>
+    <div class="levelOne">
+        <div class="up">
+            <div class="left">
+                <div class="img"><img src="design/images/face.jpg" alt=""></div>
+                <a href="">Иванова Снежанна Нургалиевна</a><span>, адвокат</span>
+                <p>Практика: Краснодар, Ростов, Тлюстенхабль</p>
+            </div>
+            <div class="right">
+                <p>3 дня назад</p>
+                <img src="design/images/5stars.png" alt="">
+            </div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <div class="down">
+            <p>Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении месяца принять меры по исправлению такой ошибки.</p>
+            <div class="buttonHolder7">
+                <input type="submit" class="buttonReplay" value="Ответить">
+                <div class="right">
+                    <input type="submit" class="buttonThankYou" value="Спасибо!">
+                    <input type="submit" class="buttonNoThanks" value="Ответ не помог">
+                </div>
+                <div class="clear">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="levelTwo">
+        <div class="up">
+            <div class="left">
+                <div class="img"><img src="design/img/noImage.png" alt=""></div>
+                <a href="">Иванова Снежанна Нургалиевна</a>
+            </div>
+            <div class="right">
+                <p>3 дня назад</p>
+            </div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <div class="down">
+            <p>Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении месяца принять меры по исправлению такой ошибки.</p>
+            <div class="buttonHolder7">
+                <input type="submit" class="buttonReplay" value="Ответить">
+            </div>
+        </div>
+    </div>
+    <div class="levelOne">
+        <div class="up">
+            <div class="left">
+                <div class="img"><img src="design/images/face.jpg" alt=""></div>
+                <a href="">Иванова Снежанна Нургалиевна</a><span>, адвокат</span>
+                <p>Практика: Краснодар, Ростов, Тлюстенхабль</p>
+            </div>
+            <div class="right">
+                <p>3 дня назад</p>
+                <img src="design/images/5stars.png" alt="">
+            </div>
+            <div class="clear">&nbsp;</div>
+        </div>
+        <div class="down">
+            <p>Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении месяца принять меры по исправлению такой ошибки. Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении месяца принять меры по исправлению такой ошибки.Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении месяца принять меры по исправлению такой ошибки.Действительно это ошибка, которую следует исправить. Напишите заявление в риелторскую фирму с требование внести такие изменения и отошлите заказным письмом с уведомлением. Они должны в течении </p>
+            <div class="buttonHolder7">
+                <input type="submit" class="buttonReplay" value="Ответить">
+                <div class="right">
+                    <input type="submit" class="buttonThankYou" value="Спасибо!">
+                    <input type="submit" class="buttonNoThanks" value="Ответ не помог">
+                </div>
+                <div class="clear">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</section>

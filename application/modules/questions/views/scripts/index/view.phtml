@@ -1,0 +1,141 @@
+					<?php //Zend_Debug::dump($this->keys);die; ?>
+					<div class="wrapper">
+						<div class="head">
+							<span>Ответить на вопрос</span>
+						</div>
+						<section class="body visible">
+							<div class="question">
+								<table>
+									<tr>
+										<td rowspan="2" class="first">
+											<p  class="qSubscribe"></p>
+											<span>3</span>
+											<a href="">Подписаться</a>
+										</td>
+										<td class="title"><a href=""><?php echo $this->question->title; ?></a></td>
+									</tr>
+									<tr>
+										<td class="text"><?php echo $this->question->content; ?></td>
+									</tr>
+									<tr>
+										<td rowspan="2"></td>
+										<td class="place">Месторасположение: <strong><?php echo $this->question->city; ?></strong></td>
+									</tr>
+									<tr>
+										<td class="tags">Теги: <a href="">процесс,</a> <a href="">аппеляция</a></td>
+									</tr>
+								</table>
+								<div class="summary">
+									<p class="time"><?php  echo $this->RastorDate($this->question->date); ?></p>
+									<p class="views"><?php echo $this->question->views; ?> просмотров</p>
+									<p class="answers"><?php echo $this->question->answers.' '.$this->translate(array('ответ', 'ответа', 'ответов', $record->answers, 'ru')); ?></p>
+									<p class="author">Автор: <a href="/user/<?php echo $this->question->id; ?>"><?php echo $this->question->name; ?></a></p>
+									<p class="privatMessage"><a href="">личное сообщение</a></p>
+								</div>
+								<div class="clear ">&nbsp;</div>
+							</div>
+						</section>
+					</div>
+					<div class="answerQuestion">
+						<form method="post" action="/addcomment/<?php echo $this->keys->id; ?>" >	
+							<h3><label for="answerQuestion">Ответить на вопрос:</label></h3>
+							<textarea name="answerQuestion" id="answerQuestion" autofocus></textarea>
+							<div class="buttonHolder6">
+								<input type="hidden" name="level" value="1">
+								<input type="hidden" name="right_key" value="<?php echo $this->keys->right_key;?>">								
+								<input type="submit" class="buttonPublish" value="Опубликовать">
+								<div class="recommend">
+									<span>Рекомендовать страницу:</span>
+									<img src="/design/images/recommend.jpg" alt="">
+								</div>
+							</div>
+						</form>
+						
+					</div>
+					<section id="questionAnswers">
+						<?php //Zend_Debug::dump($this->answers['id']); ?>
+						<?php if(!empty($this->answers)){ 
+							
+							//Zend_Debug::dump($this->answers);die;
+							foreach($this->answers as $answer)
+							{								
+								if($answer->level == 2)
+								{
+									//Zend_Debug::dump($answer); ?>
+								<div class="levelOne">
+							<div class="up">
+								<div class="left">
+									<div class="img"><img src="<?php echo $answer->photo; ?>" alt=""></div>
+									<a href="/user/<?php echo $answer->uid; ?>"><?php echo $answer->uname; ?></a><span>, адвокат</span>
+									<p>Практика: Козятин</p>
+								</div>
+								<div class="right">
+									<p><?php  echo $this->RastorDate($answer->date); ?></p>
+									<img src="/design/images/5stars.png" alt="">
+								</div>
+								<div class="clear">&nbsp;</div>
+							</div>
+							<div class="down">
+								<p><?php echo $answer->comment; ?></p>
+									<div class="buttonHolder7">
+									
+									<div class="right">
+										<input type="submit" class="buttonThankYou" value="Спасибо!">
+										<input type="submit" class="buttonNoThanks" value="Ответ не помог">
+									</div>
+									<div class="clear">&nbsp;</div>
+								</div>
+							</div>
+							<div class="answerQuestion">
+								<form method="post" action="/addcomment/<?php echo $this->keys->id; ?>" >							
+									<textarea name="answerQuestion" id="answerQuestion" autofocus></textarea>
+										<div class="buttonHolder6">
+											<input type="hidden" name="level" value="<?php echo $answer->level; ?>">
+											<input type="hidden" name="right_key" value="<?php echo $answer->right_key; ?>">
+											<input type="submit" class="buttonPublish" value="Опубликовать">
+									
+										</div>
+								</form>
+							</div>
+						</div>
+								<?php }
+							else {?>
+								
+									<div class="levelTwo">
+											<div class="up">
+												<div class="left">
+													<div class="img"><img src="<?php echo $answer->photo; ?>" alt=""></div>
+													<a href="/user/<?php echo $answer->uid; ?>"><?php echo $answer->uname; ?></a>
+												</div>
+												<div class="right">
+													<p><?php  echo $this->RastorDate($answer->date); ?></p>
+												</div>
+												<div class="clear">&nbsp;</div>
+											</div>
+											<div class="down">
+												<p><?php echo $answer->comment; ?></p>
+												<div class="buttonHolder7">
+													
+												</div>
+											</div>
+											<div class="answerQuestion">
+												<form method="post" action="/addcomment/<?php echo $this->keys->id; ?>">							
+													<textarea name="answerQuestion" id="answerQuestion" autofocus></textarea>
+													<div class="buttonHolder6">
+														<input type="hidden" name="level" value="<?php echo $answer->level; ?>">
+														<input type="hidden" name="right_key" value="<?php echo $answer->right_key; ?>">
+														<input type="submit" class="buttonPublish" value="Опубликовать" name="submit">
+									
+													</div>
+												</form>
+											</div>
+										</div>
+	
+								<?php }
+							}?>
+							
+							
+						<?php } ?>
+					</section>
+				</section>
+		

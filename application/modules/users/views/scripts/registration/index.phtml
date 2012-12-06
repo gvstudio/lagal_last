@@ -1,0 +1,36 @@
+<div class="mainForm">
+    <p>Регистрация</p>
+    <?php echo $this->form; ?>
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#usertype-element input').change(function(){
+            if ($(this).val() == '3') {
+                document.location = '<?php echo Rastor_Url::get('registration', array('type' => 'company')); ?>';
+            } else if ($(this).val() == '2') {
+                document.location = '<?php echo Rastor_Url::get('registration', array('type' => 'jurist')); ?>';
+            } else {
+                document.location = '<?php echo Rastor_Url::get('registration'); ?>';
+            }
+        });
+        $('#password-element').after('<dd><a href="" id="showpassword">Показать пароль</a></dd>');
+        $('#showpassword').click(function(){
+            if ($('#password').attr('type') == 'password') {
+                var pas = $('#password').val();
+                $('#showpassword').html('Скрыть пароль');
+                $('#password-element').remove();
+                $('dd:has(#showpassword)').before('<dd id="password-element"><input type="text" class="passwordfield" name="password" id="password" value=""></dd>');
+                $('#password').val(pas);
+                return false;
+            } else {
+                var pas = $('#password').val();
+                $('#showpassword').html('Показать пароль');
+                $('#password-element').remove();
+                $('dd:has(#showpassword)').before('<dd id="password-element"><input type="password" class="passwordfield" name="password" id="password" value=""></dd>');
+                $('#password').val(pas);
+                return false;
+            }
+        });
+    });
+</script>

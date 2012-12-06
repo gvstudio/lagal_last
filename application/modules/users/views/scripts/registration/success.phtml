@@ -1,0 +1,29 @@
+<?php if ($this->show) { ?>
+<div style="display: none;" id="successPopupHolder">
+    <div id="maket165" class="popup">
+        <div class="head">
+            <span>Спасибо!</span>
+            <img src="design/img/logoSmall.png" alt="LEGALMAG">
+        </div>
+        <div class="body">
+            <span>Благодарим вас за регистрацию на Legalmag!</span><br><br>
+            <span>На указанныйвами адрес электронной почты выслано письмо со ссылкой на активацию вашего аккаунта. Проверьте вашу электронную почту.</span><br><br>
+            <span>После прохождения активации рекомендуем вам заполнить информацию в вашем личном кабинете. Спасибо за то что выбрали нас.</span>
+            <p>Legalmag.</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.fancybox($('#successPopupHolder').html(), {
+		padding	: 0,
+		margin		: 0,
+		autoSize	: true,
+		closeClick	: false,
+		closeBtn	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+    });
+</script>
+<?php } ?>

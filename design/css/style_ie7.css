@@ -1,0 +1,18 @@
+#content {  margin: 80px 0 0 0;  }
+#right-col .body .question table .first a { margin: 0 0 0 -16px; }
+.buttonPay { padding: 6px 10px; }
+.popup .head { float: left; width: 100%; }
+.popup .head span { width: 450px; float: left; }
+.buttonHolder3 { width: 550px; margin: 20px 0 0 60px; }
+.buttonHolder3 .simpleLink{ margin: -30px 0 0 -0; }
+.buttonCancel { margin: 0; }
+.buttonHolder4 { width: 515px; margin: 20px 0 0 115px; }
+.buttonHolder4 .buttonSendMessage{ margin: 0 0 0 -50px; }
+.buttonHolder4 label{ margin: -30px 0 0 0; }
+.buttonHolder4 a { margin: 20px 40px 0 65px; }
+.buttonHolder5 { float: none; }
+.ui-tabs .ui-tabs-nav li { width: 33% !important; }
+.adsBlock .amount3, .adsBlock .amount4, .adsBlock .amount5 { margin: 0; }
+.benefitsComment .left { width: 5%; }
+#enterForm p { font-size: 20px; } 
+#regForm fieldset { padding: 0 0 30px 0; }

@@ -1,0 +1,18 @@
+<?php if ($this->auth->hasIdentity()) { ?>
+    <div id="logged">
+        Привет,&nbsp;<a class="enter" href=""><?php echo $this->auth->getIdentity()->name; ?>!</a>
+        <a class="register" href="<?php echo Rastor_Url::get('logout'); ?>">Выйти</a>
+        <div class="sep"></div>
+    </div>
+<?php } else { ?>
+    <div id="login">
+        <a class="enter modal" href="#loginpanel">Войти</a>
+        <a class="register" href="<?php echo Rastor_Url::get('registration'); ?>">Зарегистрироваться</a>
+    </div>
+	<div class="loginza-panel">	
+        		<a href="http://loginza.ru/api/widget?token_url=http://gvstudio.kiev.ua/regform" class="loginza">
+    	 			<img src="http://loginza.ru/img/sign_in_button_gray.gif" alt="Войти через loginza"/>
+				</a>
+	</div>	
+    <?php echo $this->action('login', 'index', 'users'); ?>
+<?php } ?>

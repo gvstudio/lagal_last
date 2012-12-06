@@ -1,0 +1,41 @@
+<div class="wrapper profile">
+    <div class="head">
+        <span>Вопросы по тегу "<?php echo $this->tag->name; ?>"</span>
+    </div>
+    <section class="body">
+        <?php foreach ($this->paginator as $record) { ?>
+        <div class="question">
+            <table>
+                <tr>
+                    <td rowspan="2" class="first">
+                        <p  class="qSubscribe"></p>
+                        <span>3</span>
+                        <a href="">Подписаться</a>
+                    </td>
+                    <td class="title"><a href="<?php echo Rastor_Url::get('question_view', array('id' => $record->id)); ?>"><?php echo $record->name; ?></a></td>
+                </tr>
+                <tr>
+                    <td class="text"><?php echo $record->content; ?></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><?php if ($record->price > 0) { ?><p class="price"><?php echo $record->price; ?></p><?php } ?></td>
+                    <td class="place">Месторасположение: <strong><?php echo $record->user_city; ?></strong></td>
+                </tr>
+                <?php if (count($this->tags[$record->id])) { ?>
+                <tr>
+                    <td class="tags">Теги: <?php echo implode(', ', $this->tags[$record->id]) ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+            <div class="summary">
+                <p class="time"><?php echo $this->RastorDate($record->date); ?> назад</p>
+                <p class="views"><?php echo $record->views.' '.$this->translate(array('просмотр', 'просмотра', 'просмотров', $record->views, 'ru')); ?></p>
+                <p class="answers"><?php echo $record->answers.' '.$this->translate(array('ответ', 'ответа', 'ответов', $record->answers, 'ru')); ?></p>
+                <p class="author">Автор: <a href="<?php echo $record->user_id; ?>"><?php echo $record->user_name; ?></a></p>
+                <p class="privatMessage"><a href="messageto/<?php echo $record->user_id; ?>">личное сообщение</a></p>
+            </div>
+            <div class="clear ">&nbsp;</div>
+        </div>
+        <?php } ?>
+    </section>
+</div>

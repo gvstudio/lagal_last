@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+
+
+
+
+
+
+
+
+    </head>
+    <body>
+
+
+
+
+        <?php echo $this->action('success', 'registration', 'users'); ?>
+        <section id="body">
+
+            <?php echo $this->partial('inc.header.phtml'); ?>
+            <div class="clear">&nbsp;</div>
+
+            <section id="content"><!--content-->
+                <div class="wrapper">
+                    <aside id="left-col">
+                        <?php  echo $this->action('leftuserpanel', 'index', 'users'); ?>
+                        <div id="post">
+                            <div>
+                                <img src="/design/img/leftOne.png" alt="">
+                                    <a class="head" href="<?php echo Rastor_Url::get('content_add', array('object' => 'question')); ?>">Задать вопрос</a>
+                                    <p>Ваш вопрос будет доступен всем юристам</p>
+                            </div>
+                            <div>
+                                <img src="/design/img/leftTwo.png" alt="">
+                                    <a class="head" href="<?php echo Rastor_Url::get('content_add', array('object' => 'personalquestion')); ?>">Персональный вопрос</a>
+                                    <p>Вы сожете выбрать кто будет отвечать на Ваш вопрос</p>
+                            </div>
+                            <div>
+                                <img src="/design/img/leftThree.png" alt="">
+                                    <a class="head" href="<?php echo Rastor_Url::get('content_add', array('object' => 'job')); ?>">Предложить работу</a>
+                                    <p>Вы можете опубликовать вакансию, или разовую работу для юристов</p>
+                            </div>
+                            <div id="leftSay"></div>
+                        </div>
+                        <div id="offers">
+                            <h2>Предлагаю услуги:</h2>
+                             <?php echo $this->action('getsomelawyers', 'index', 'users'); ?>
+                        </div>
+                    </aside>
+                    <section id="right-col">
+                        <?php echo $this->layout()->content; ?>
+                        
+                    </section>
+                </div>
+            </section><!--/content-->
+
+            <div class="clear">&nbsp;</div>
+            <div id="rasporka"></div>
+
+        </section><!--/body-wrapper-->
+
+        <?php echo $this->partial('inc.footer.phtml'); ?>
+    </body>
+</html>

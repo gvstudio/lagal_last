@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+    </head>
+    <body>
+        <section id="body">
+            <?php echo $this->partial('inc.header.phtml'); ?>
+            <div class="clear">&nbsp;</div>
+
+            <section id="content"><!--content-->
+                <div class="wrapper">
+                    <aside id="left-col">
+                        <?php// echo $this->action('leftuserpanel', 'index', 'users'); ?>
+			<?php if($_SERVER['REQUEST_URI']="/question/preview"){?>
+			<div id="leftHelp">
+				<p>Проверьте вашу публикацию.</p>
+				<p class="strong">Так она будет отображена на сайте.</p>
+			</div>
+			<?php } ?>
+                       	<div id="offers">
+                            <h2>Предлагаю услуги:</h2>
+                             <?php echo $this->action('getsomelawyers', 'index', 'users'); ?>
+                        </div>
+                    </aside>
+                    <section id="right-col">
+                        <?php echo $this->layout()->content; ?>
+                    </section>
+                </div>
+            </section><!--/content-->
+
+            <div class="clear">&nbsp;</div>
+            <div id="rasporka"></div>
+
+        </section><!--/body-wrapper-->
+
+        <?php echo $this->partial('inc.footer.phtml'); ?>
+    </body>
+</html>

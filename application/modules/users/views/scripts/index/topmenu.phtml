@@ -1,0 +1,20 @@
+<?php if ($this->auth) { ?>
+    <nav class="auth">
+        <ul>
+        	<li <?php if($_SERVER['REQUEST_URI']=="/") echo "class=\"active\""; ?>  ><a href="/">Лента вопросов</a></li>
+            <li <?php if($_SERVER['REQUEST_URI']=="/catalog") echo "class=\"active\""; ?>  ><a href="/catalog">Каталог</a></li>
+            <li <?php if(preg_match('/profile/',$_SERVER['REQUEST_URI'])) echo "class=\"active\""; ?>  ><a href="/profile/edit">Личный кабинет</a></li>
+            <li ><a href="">Вопросы и ответы</a></li>
+            <li <?php if($_SERVER['REQUEST_URI']=="/kak_eto_rabotaet.html") echo "class=\"active\""; ?> ><a href="/kak_eto_rabotaet.html">Как это работает?</a></li>
+        </ul>
+    </nav>
+<?php } else { ?>
+    <nav>
+        <ul>
+            <li <?php if($_SERVER['REQUEST_URI']=="/") echo "class=\"active\""; ?>  ><a href="/">Лента вопросов</a></li>
+            <li <?php if($_SERVER['REQUEST_URI']=="/catalog") echo "class=\"active\""; ?>  ><a href="/catalog">Каталог</a></li>
+            <li><a href="">Вопросы и ответы</a></li>
+            <li <?php if($_SERVER['REQUEST_URI']=="/kak_eto_rabotaet.html") echo "class=\"active\""; ?> ><a href="/kak_eto_rabotaet.html">Как это работает?</a></li>
+        </ul>
+    </nav>
+<?php } ?>

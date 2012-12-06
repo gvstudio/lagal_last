@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <div class="head">Редактировать профиль</div>
+    <div class="personalInfo">
+        <form action="" method="post">
+            <p class="title">Контактная информация</p>
+            <dl>
+                <?php if ($this) echo $this->form->phone; ?>
+                <?php echo $this->form->phone_time; ?>
+                <?php echo $this->form->email; ?>
+                <?php echo $this->form->url; ?>
+                <?php echo $this->form->city_id; ?>
+                <?php echo $this->form->adress; ?>
+            </dl>
+            <div class="clear">&nbsp;</div>
+            <p class="title">Практика</p>
+            <p class="remark">Возможно оказание юридических услуг в следующих регионах (населенных пунктах):</p>
+            <dl>
+                <dt><label for="region__1">Город или регион:</label></dt>
+                <dd>
+                    <select id="region__1">
+                        <option selected="" disabled=""></option>
+                        <option>москваская обл.</option>
+                        <option>питерская обл.</option>
+                        <option>краснодарская обл.</option>
+                        <option>хаоьковская обл.</option>
+                    </select>
+                </dd>
+                <dt><label for="region__2">Город или регион:</label></dt>
+                <dd>
+                    <select id="region__2">
+                        <option selected="" disabled=""></option>
+                        <option>москва</option>
+                        <option>питер</option>
+                        <option>краснодар</option>
+                        <option>хаоьков</option>
+                    </select>
+                </dd>
+                <dt><label for="region__3">Город или регион:</label></dt>
+                <dd>
+                    <select id="region__3">
+                        <option selected="" disabled=""></option>
+                        <option>москва</option>
+                        <option>питер</option>
+                        <option>краснодар</option>
+                        <option>хаоьков</option>
+                    </select>
+                </dd>
+            </dl>
+            <input type="submit" id="buttonAdd" value="">
+            <input type="submit" class="buttonSave" value="Сохранить">
+        </form>
+    </div>
+</div>

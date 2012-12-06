@@ -1,0 +1,64 @@
+<div class="head">Редактировать профиль</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#profstatus_id').change(function(){
+            if ($(this).val() == '1') {
+                $('#jurist_number-label').show();
+                $('#jurist_number-element').show();
+            } else {
+                $('#jurist_number-label').hide();
+                $('#jurist_number-element').hide();
+            }
+        });
+        
+        if ($('#profstatus_id').val() == '1') {
+            $('#jurist_number-label').show();
+            $('#jurist_number-element').show();
+        } else {
+            $('#jurist_number-label').hide();
+            $('#jurist_number-element').hide();
+        }
+    });
+    function submitForm(){
+        if ($('#specialization').val().length > 5) {
+            alert('Вы можете выбрать не больше 5ти специализаций!');
+        } else {
+            $("#educationForm").submit();
+        }
+    }
+</script>
+<div class="personalInfo wide">
+    <form method="post" onsubmit="submitForm(); return false;" id="educationForm">
+        <p class="title">Работа</p>
+        <dl>
+            <?php echo $this->form->profstatus_id; ?>
+            <?php echo $this->form->job; ?>         
+            <?php echo $this->form->experience; ?>
+            <?php echo $this->form->specialization; ?>
+        </dl>
+        <div id="rightTop">
+            <dl>
+                <?php echo $this->form->jurist_number; ?>
+                <?php echo $this->form->jurist_company; ?>
+            </dl>
+        </div>
+        <div class="specializationCaption">
+            <p>Выберите теги, описывающие вашу специализацию. Это даст возможность пользователям присылать вам предложения о 	работе, соотвествующие вашей специализации. </p>
+            <p><strong>Чтобы выбрать несколько тегов, нажмите Ctrl+click.</strong><br>
+                Возможен выбор не более 5 тегов.</p>
+        </div>
+        <div class="clear">&nbsp;</div>
+        <p class="title">Образование</p>
+        <dl>
+            <?php echo $this->form->education_city_id; ?>
+            <?php echo $this->form->education_name; ?>
+            <dt><label for="graduation">Год окончания:</label></dt>
+            <dd>
+                <?php echo $this->form->education_year; ?>
+                <?php echo $this->form->education_notcomplited; ?><label for="education_notcomplited">Учусь сейчас</label>
+            </dd>
+            <?php echo $this->form->education_achieve; ?>
+        </dl>
+        <div class="buttonHolder8"><input type="submit" class="buttonSave" value="Сохранить"></div>
+    </form>
+</div>

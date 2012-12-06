@@ -1,0 +1,26 @@
+<?php
+$this->headLink()->appendStylesheet('/design/css/style.css')
+        ->appendStylesheet('/design/css/jquery-ui-1.8.20.custom.css')
+        ->appendStylesheet('/design/css/jquery.ui.selectmenu.css')
+        ->appendStylesheet('/design/css/jquery.fancybox.css');
+
+
+$this->headScript()->appendFile('/design/js/jquery-1.7.2.min.js')        
+        ->appendFile('/design/js/jquery-ui-1.8.20.custom.min.js')
+        ->appendFile('/design/js/jquery.ui.selectmenu.js')
+        ->appendFile('/design/js/jquery.placeholder.min.js')
+		->appendFile('/design/js/vardump.js')
+		->appendFile('http://loginza.ru/js/widget.js')		
+        ->appendFile('/design/js/jquery.fancybox.pack.js')
+		->appendFile('/design/js/custom.js');
+
+echo $this->headMeta();
+echo $this->headTitle();
+echo $this->headLink();
+echo $this->headStyle();
+echo $this->headScript();
+?>
+<!--[if IE 7]><link rel="stylesheet" href="/design/css/style_ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" href="/design/css/style_ie8.css" /><![endif]-->
+<!--[if IE 9]><link rel="stylesheet" href="/design/css/style_ie9.css" /><![endif]-->
+<!--[if lt IE 9]><script src="/design/js/html5.js"></script><![endif]-->

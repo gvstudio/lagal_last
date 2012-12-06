@@ -1,0 +1,57 @@
+<div class="wrapper">	
+	<div class="head">
+		Редактировать профиль
+	</div>
+	<div class="personalInfo">
+		<?php 
+		foreach($this->services as $service)
+		{ ?>
+			<span><?php echo $service->name; ?></span><span><?php echo $service->price; ?></span><br />
+	<?php
+		} 
+	?>
+		<form method="post">
+			<p class="title">Услуги</p>
+			<dl class="addService">
+				<dt>Наименование:</dt>
+				<dd>Стоимость (руб.):</dd>
+				<div id="input_field">
+					<dt><input type="text" name="service-1" class="serviceName" placeholder="Например, Регистрация ИП"></dt>
+					<dd><input type="text" name="price-1" class="servicePrice" placeholder="Например, 200"></dd>
+				</div>				
+			</dl>
+			<div class="clear">&nbsp;</div>
+			<div class="buttonAddBlock2">
+				<label for="buttonAdd" class="buttonAdd">Добавить еще одного сотрудника</label><div id="buttonAdd"></div>
+			</div>
+			<input type="submit" class="buttonSave" value="Сохранить">
+			<div id="proverochka"></div>
+		</form>
+	</div>
+</div>
+<script>
+	$('#buttonAdd').click(
+		function(){
+			var form = $('input.serviceName:last').clone().attr('value','');		
+			var name = form.attr('name');
+			
+			name = name.split('-');	
+			var itt = parseInt(name[1])+1		
+			name = name[0]+'-'+itt;
+			form.attr('name',name);
+			var nameInput = $(document.createElement('dt'));
+			nameInput.append(form);			
+			$('#input_field').append(nameInput);
+				
+			form = $('input.servicePrice:last').clone().attr('value','');			
+			name = form.attr('name');
+			name = name.split('-');	
+			
+			name = name[0]+'-'+itt;
+			form.attr('name',name);
+			var nameInput = $(document.createElement('dd'));
+			nameInput.append(form.clone());	
+			$('#input_field').append(nameInput);
+		}
+	);
+</script>

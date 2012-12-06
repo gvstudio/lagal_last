@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+    </head>
+    <body>
+        <?php echo $this->action('success', 'registration', 'users'); ?>
+        <section id="body">
+            <?php echo $this->partial('inc.header.phtml'); ?>
+            <div class="clear">&nbsp;</div>
+
+            <section id="content"><!--content-->
+                <div class="wrapper">
+                    <aside id="left-profile">
+                        <?php echo $this->action('leftmenu', 'profile', 'users'); ?>
+                    </aside>
+                    <section id="right-profile">
+                        <div class="wrapper">
+                            <?php echo $this->layout()->content; ?>                          
+                        </div>
+                    </section>
+                </div>
+            </section><!--/content-->
+
+            <div class="clear">&nbsp;</div>
+            <div id="rasporka"></div>
+
+        </section><!--/body-wrapper-->
+
+        <?php echo $this->partial('inc.footer.phtml'); ?>
+    </body>
+</html>

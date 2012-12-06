@@ -1,0 +1,26 @@
+<div class="headQuestion">
+    <p>Задайте свой вопрос</p>
+    <a href="">или опубликуйте работу для юристов</a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tabs').tabs("select", <?php echo $this->selectedTab; ?>);
+    });
+</script>
+<div id="tabs">
+    <ul>
+        <li><a href="#question">Вопрос</a></li>
+        <li><a href="#personalQuestion">Персональный вопрос</a></li>
+        <li><a href="#job">Работа</a></li>
+    </ul>
+    <div id="question">
+        <?php echo $this->action('add', 'index', 'questions'); ?>
+    </div>
+    <div id="personalQuestion">
+        <?php echo $this->action('addpersonal', 'index', 'questions'); ?>
+    </div>
+    <div id="job">
+        <?php echo $this->action('add', 'index', 'jobs'); ?>
+    </div>
+    <div class="clear">&nbsp;</div>
+</div>
