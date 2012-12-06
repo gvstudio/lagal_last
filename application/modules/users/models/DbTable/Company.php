@@ -25,5 +25,11 @@ class Users_Model_DbTable_Company extends Rastor_Model_DbTable_Abstract {
         
         return $result;
     }
+        public function getCompanyInfo($id){
+        $select = $this->select()
+                ->where('user_id = ?', $id);
+        
+        return $this->getAdapter()->fetchRow($select);
+    }
 
 }

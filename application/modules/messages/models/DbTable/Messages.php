@@ -12,4 +12,5 @@ class Messages_Model_DbTable_Messages extends Rastor_Model_DbTable_Abstract {
 					->where('m.to_id = ?',$id);
 		return $this->getAdapter()->fetchAll($select); 
 	}
+
 }

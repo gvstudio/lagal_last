@@ -52,6 +52,11 @@ class Users_IndexController extends Rastor_Controller_Action {
                 $juristModel = new Users_Model_DbTable_Jurist();
                 $data->jurist = $juristModel->getUserInfo($data->id);
             }
+	    if($data->role == 'company'){
+		$companyModel = new Users_Model_DbTable_Company();
+		$data->company = $companyModel->getCompanyInfo($data->id);
+	    }
+	    
 			
 			$messagemodule = new Users_Model_DbTable_Users();
 			$mess = $messagemodule->getCountMessage($data->id);

@@ -1,5 +1,6 @@
-<form>
+<form action="/jobs/add" method="post" class="jobs_form" id="jobForm">
     <dl>
+	<?php echo $this->form->name; ?>
         <dt>Тип работы:</dt>
         <dd>
             <div class="field">
@@ -56,7 +57,7 @@
         </dd>
         <dt>Требуемый опыт работы:</dt>
         <dd>
-            <select class="job-experience">
+            <select class="job-experience" name="experience">
                 <option>1 год</option>
                 <option>2 года</option>
                 <option>5 лет</option>
@@ -65,7 +66,7 @@
         <dt>Зарплата:</dt>
         <dd>
             <div class="job-amount">
-                <input type="text" class="amount" maxlength="5" placeholder="100">
+                <input type="text" class="amount" maxlength="5" placeholder="100" name="job-amount">
                 <p>рублей</p>
             </div>
         </dd>
@@ -75,7 +76,17 @@
         </dd>
     </dl>
     <div class="buttonHolder">
-        <input type="submit" class="buttonClear" value="Очистить">
-        <input type="submit" class="buttonSendQuestion" value="Отправить вопрос">
+       <input type="submit" class="buttonClear" value="Очистить"> 
+       <input type="submit" class="buttonSendQuestion" value="Отправить вопрос" >
     </div>
 </form>
+<script>
+function add_job(){
+    $.post('/job',{
+	    userid : 1,
+	    topicid : 2,
+	    act : 3
+	});
+	window.location.reload();
+}
+</script>

@@ -43,6 +43,30 @@ return array(
                     'action' => 'edit'
                 )
         ),
+	'profile_workers' => new Zend_Controller_Router_Route(
+                '/profile/workers',
+                array(
+                    'module' => 'users',
+                    'controller' => 'profile',
+                    'action' => 'workers'
+                )
+        ),
+	'commercial_stat' => new Zend_Controller_Router_Route(
+                '/profile/commercial/statistic',
+                array(
+                    'module' => 'users',
+                    'controller' => 'profile',
+                    'action' => 'commercial'
+                )
+        ),
+	'commercial_views' => new Zend_Controller_Router_Route(
+                '/profile/commercial/views',
+                array(
+                    'module' => 'users',
+                    'controller' => 'profile',
+                    'action' => 'commercialviews'
+                )
+        ),
         'profile_education' => new Zend_Controller_Router_Route(
                 '/profile/education',
                 array(

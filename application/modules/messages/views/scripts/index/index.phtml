@@ -15,7 +15,7 @@
 	<div class="left">
 		<img src="<?php echo $message->photo ?>" alt="">
 		<a href="/user/<?php echo $message->id ?>"><?php echo $message->name ?></a>
-		<p class="mailDate"><?php echo $message->date ?></p>
+		<p class="mailDate"><?php echo date("Y-m-d H:i",$message->date);?></p>
 	</div>
 	<div class="right">
 		<p><strong><?php echo $message->title ?></strong></p>

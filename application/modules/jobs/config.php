@@ -10,6 +10,14 @@ return array(
                     'action' => 'index'
                 )
         ),
+	'jobs_add' => new Zend_Controller_Router_Route(
+                'jobs/add',
+                array(
+                    'module' => 'jobs',
+                    'controller' => 'index',
+                    'action' => 'add'
+                )
+        ),
         'jobs_view' => new Zend_Controller_Router_Route(
                 'job/:id',
                 array(

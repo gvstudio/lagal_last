@@ -10,16 +10,31 @@ return array(
                     'action' => 'index'
                 )
         ),   
-		 'send_message' => new Zend_Controller_Router_Route(
+		'send_message' => new Zend_Controller_Router_Route(
                 'message/:id',
                 array(
                 	'id'=>'1',
                     'module' => 'messages',
                     'controller' => 'index',
-                    'action' => 'sendmessage'
-                    
+                    'action' => 'sendmessage'    
                 )
-        )             
+        ),
+		'show_actions' => new Zend_Controller_Router_Route(
+                'actions',
+                array(
+                    'module' => 'messages',
+                    'controller' => 'index',
+                    'action' => 'showactions'    
+                )
+        ),
+	'mark_as_reed' => new Zend_Controller_Router_Route(
+                'markasreed',
+                array(
+                    'module' => 'messages',
+                    'controller' => 'index',
+                    'action' => 'markasreed'    
+                )
+        )
     ),
     'acl' => array(
         'resources' => array(

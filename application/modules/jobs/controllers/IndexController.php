@@ -65,8 +65,29 @@ class Jobs_IndexController extends Rastor_Controller_Action {
     
     public function addAction() {
         $citiesModel = new Cities_Model_DbTable_City();
-        
+        //Zend_Debug::dump($_SESSION);die;
         $this->view->cities = $citiesModel->getCityList();
+	$jobs_db = new Jobs_Model_DbTable_Jobs();
+	$form = new Questions_Form_Question();
+	$form->getElement('name')->setLabel('Заголовок');
+	$this->view->form = $form;
+	if($this->getRequest()->isPost()){
+	    $user = new Zend_Session_Namespace('Zend_Auth');
+	  //Zend_Debug::dump($_POST);die;
+	  $insert_arra = array(
+		  'name' => $_POST['name'],
+		  'content' => $_POST['job-summary'],
+		  'city_id' => $_POST['a'],
+		  'price'=>$_POST['job-amount'],
+		  'requirements' => $_POST['job-tech'],
+		  'experience'=>$_POST['experience'],
+		  'user_id'=>$user->storage->id,
+		  'date' => time()
+		  );
+	  $jobs_db->insert($insert_arra);
+	  $this->_redirect('/');
+	}
+	
     }
 
 }

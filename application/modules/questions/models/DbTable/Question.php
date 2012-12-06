@@ -104,14 +104,6 @@ class Questions_Model_DbTable_Question extends Rastor_Model_DbTable_Abstract {
 		
 	}
 	
-	public function selectByNameContent($name,$content){
-		$select = $this->select()
-				->from($this->_name,array('id'))
-				->where('name = ?',$name)
-				->where('content = ?',$content);
-		return $this->getAdapter()->fetchRow($select);
-	}
-	
 	public function getQuestion(){
 		/*$select = $this->select()
 						->where('paid NOT IN ?',1)

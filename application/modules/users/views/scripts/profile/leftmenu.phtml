@@ -1,3 +1,4 @@
+<?php $user = new Zend_Session_Namespace('Zend_Auth'); ?>
 <div id="userIn">
     <div class="img">
         <?php if ($this->auth->getIdentity()->photo) { ?>
@@ -11,6 +12,8 @@
 </div>
 <div id="profile">
     <div class="profile">
+	<?php // Zend_Debug::dump($user->storage->role);die; 
+	if($user->storage->role != 'company'){?>
         <ul>
             <li><a href="">Редактировать профиль</a>
                 <ul>
@@ -19,11 +22,26 @@
                     <li><a href="/profile/contacts">Контатная информация</a></li>
                     <li><a href="/profile/services">Услуги</a></li>
                     <li><a href="">Настройка оповещений</a></li>
-                    <li><a href="">Рекламная компания</a></li>
+                    <li><a href="/profile/commercial/statistic">Рекламная компания</a></li>
                 </ul>
             </li>
             <li class="back"><a href="">Назад</a></li>
         </ul>
+	<?php }else { ?>
+	            <ul>
+            <li><a href="">Редактировать профиль</a>
+                <ul>
+                    <li class="active">Информация о компании</li>
+		    <li><a href="/profile/contacts">Контатная информация</a></li>
+                    <li><a href="/profile/services">Услуги</a></li>
+                    <li><a href="">Настройка оповещений</a></li>
+		    <li><a href="/profile/workers">Сотрудники</a></li>
+                    <li><a href="/profile/commercial/statistic">Рекламная компания</a></li>
+                </ul>
+            </li>
+            <li class="back"><a href="">Назад</a></li>
+        </ul>
+	    <?php } ?>
     </div>
     <div class="leftSay"></div>
 </div>

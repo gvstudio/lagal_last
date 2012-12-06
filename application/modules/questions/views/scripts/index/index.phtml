@@ -1,5 +1,36 @@
+<script>
+function sign_up(self, user, action ){
+//console.log(action);
+if(action == 1 ){    
+var id_topic = self.attr('id');
+    if(user != null){
+	$.post('/sign',{
+	userid : user,
+	topicid : id_topic,
+	act : action
+	});
+	//window.location.reload();
+    }else{
+	alert('Вы должны авторизироватся');    
+	}
+    }
+    if(action == 0){
+    var id_topic = self.attr('id');
+	if(user != null){
+	    $.post('/sign',{
+	    userid : user,
+	    topicid : id_topic,
+	    act : action
+	});
+	//window.location.reload();
+    }else{
+	alert('Вы должны авторизироватся');    
+	}
+    }
+}
+</script>
 <div class="wrapper profile">
-	<?php //Zend_Debug::dump($this->paidWA);die; ?>
+	<?php //Zend_Debug::dump($this->paginator); ?>
     <div class="head">
         <ul >
             <li class="active"><a href="<?php echo Rastor_Url::get('default') ?>">Вопросы</a></li>
@@ -10,7 +41,6 @@
     <section class="body">
     	<?php if(count($this->paidWA)>0)
     	foreach ($this->paidWA as $record) { ?>
-	<?php //Zend_Debug::dump($record);die; ?>
         <div class="question">
             <table>
                 <tr>
@@ -44,15 +74,28 @@
             <div class="clear ">&nbsp;</div>
         </div>
         <?php } ?>
-        <?php foreach ($this->paginator as $record) { ?>
-	<?php //Zend_Debug::dump($record);die; ?>
+	<?php $user = new Zend_Session_Namespace('Zend_Auth');
+	//Zend_Debug::dump($user->storage);die;
+	if($user->storage->id === NULL ){
+	    $user_id = 'null';
+	}else{$user_id = $user->storage->id;}
+	foreach ($user->storage->topic_relations as $relation){
+	    
+	    $array_relations[] = $relation; 
+	}
+
+	?>
+        <?php foreach ($this->paginator as $record) {// 
+	    if (in_array($record->id, $array_relations)){$flag = true;}else{$flag=false;}
+	    ?>
+	<?php if($flag){ //подписатся //Zend_Debug::dump($user->storage->topic_relations);die; ?>
         <div class="question">
             <table>
                 <tr>
                     <td rowspan="2" class="first">
                         <p  class="qSubscribe"></p>
                         <span>3</span>
-                        <a href="">Подписаться</a>
+                        <a id="<?= $record->id ?>" onclick="sign_up($(this), <?= $user_id ?>, 0)" href="/">Отписатся</a>
                     </td>
                     <td class="title"><a href="<?php echo Rastor_Url::get('question_view', array('id' => $record->id)); ?>"><?php echo $record->name; ?></a></td>
                 </tr>
@@ -78,6 +121,41 @@
             </div>
             <div class="clear ">&nbsp;</div>
         </div>
+	
+	<?php } else{ //отписатся ?>
+	     <div class="question">
+            <table>
+                <tr>
+                    <td rowspan="2" class="first">
+                        <p  class="qSubscribe"></p>
+                        <span>3</span>
+                        <a id="<?= $record->id ?>" onclick="sign_up($(this), <?= $user_id ?>, 1)" href="">Подписаться</a>
+                    </td>
+                    <td class="title"><a href="<?php echo Rastor_Url::get('question_view', array('id' => $record->id)); ?>"><?php echo $record->name; ?></a></td>
+                </tr>
+                <tr>
+                    <td class="text"><a href="<?php echo Rastor_Url::get('question_view', array('id' => $record->id)); ?>"><?php echo $record->content; ?></a></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><?php if ($record->paid == 1) { ?><p class="price"><?php echo $record->price; ?> <img src="/design/img/_qPrice.png " alt="Цена в рублях" style="width: 11px;height: 12px;"></p><?php } ?></td>
+                    <td class="place">Месторасположение: <strong><?php echo $record->user_city; ?></strong></td>
+                </tr>
+                <?php if (count($this->tags[$record->id])) { ?>
+                <tr>
+                    <td class="tags">Теги: <?php echo implode(', ', $this->tags[$record->id]) ?></td>
+                </tr>
+                <?php } ?>
+            </table>
+            <div class="summary">
+                <p class="time"><?php echo $this->RastorDate($record->date); ?> назад</p>
+                <p class="views"><?php echo $record->views.' '.$this->translate(array('просмотр', 'просмотра', 'просмотров', $record->views, 'ru')); ?></p>
+                <p class="answers"><?php echo $record->answers.' '.$this->translate(array('ответ', 'ответа', 'ответов', $record->answers, 'ru')); ?></p>
+                <p class="author">Автор: <a href="/user/<?php echo $record->user_id; ?>"><?php echo $record->user_name; ?></a></p>
+                <p class="privatMessage"><a href="/message/<?php echo $record->user_id; ?>">личное сообщение</a></p>
+            </div>
+            <div class="clear ">&nbsp;</div>
+        </div>
+	<?php } ?> 
         <?php } ?>
     </section>
 </div>

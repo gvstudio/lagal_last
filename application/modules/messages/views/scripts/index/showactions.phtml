@@ -1,0 +1,45 @@
+<script>
+function mark_message(id){
+    console.log(id);
+    if (id != ''){
+    $.post('/markasreed',{
+	mesegeid : id
+	});
+	window.location.reload();
+    }    
+}
+</script>
+<div class="wrapper profile">
+   <div class="head">
+		<ul id="mailHead">
+			<li>Мои сообщения</li>
+			<li></li>
+			<li><a href="" class="mailInboxDisabled">Полученные сообщения</a></li>
+			<li><a href="" class="mailOut">Отправленные сообщения</a></li>
+		</ul>
+		<div class="clear">&nbsp;</div>
+	</div>
+</div>
+<?php $user = new Zend_Session_Namespace('Zend_Auth');
+    //Zend_Debug::dump($user->storage->id);die; ?>
+<?php foreach ($this->messages as $message) {	//Zend_Debug::dump($message);die; 
+if ($message->flag_reed != '0'){$status = 'checked';}else{$status = '';}
+?>
+<div class="newMessage">
+	<input type="checkbox" name="" <?php echo $status;?>>
+	<div class="left">
+		<img src="<?php echo $message->photo ?>" alt="">
+		<a href="/user/<?php echo $message->id ?>"><?php echo $message->name ?></a>
+		<p class="mailDate"><?php echo date("Y-m-d H:i",$message->date);?></p>
+	</div>
+	<div class="right">
+		<p><strong><?php echo $message->title ?></strong></p>
+		<p><?php echo $message->text ?></p>
+		<?php if($message->flag_reed == '0'){?>
+		<p><a href="/markasreed" onclick="mark_message(<?= $message->id ?>)">Отметить как прочинное</a></p>
+		<?php } ?>
+		<a class="delete" href="">Удалить</a>
+	</div>
+	<div class="clear">&nbsp;</div>
+</div>
+<?php } ?>

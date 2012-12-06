@@ -74,5 +74,10 @@ class Questions_Model_DbTable_QuestionAnswers extends Rastor_Model_DbTable_Abstr
 					   ->where('u.id = ?',$id);
 		return $this->getAdapter()->fetchAll($select); 
 	}
+	
+	public function getSubscribers($id_topic){
+	    $select = 'SELECT * FROM `topic_relations` WHERE `question_id` ='. $id_topic;
+	    return $this->getAdapter()->query($select)->fetchAll();
+	}
 
 }

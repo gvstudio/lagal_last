@@ -11,14 +11,26 @@
             <section id="content"><!--content-->
                 <div class="wrapper">
                     <aside id="left-col">
-                        <?php// echo $this->action('leftuserpanel', 'index', 'users'); ?>
-			<?php if($_SERVER['REQUEST_URI']="/question/preview"){?>
-			<div id="leftHelp">
-				<p>Проверьте вашу публикацию.</p>
-				<p class="strong">Так она будет отображена на сайте.</p>
-			</div>
-			<?php } ?>
-                       	<div id="offers">
+                        <?php echo $this->action('leftuserpanel', 'index', 'users'); ?>
+                        <div id="post">
+                            <div>
+                                <img src="/design/img/leftOne.png" alt="">
+                                    <a class="head" href="">Задать вопрос</a>
+                                    <p>Ваш вопрос будет доступен всем юристам</p>
+                            </div>
+                            <div>
+                                <img src="/design/img/leftTwo.png" alt="">
+                                    <a class="head" href="">Персональный вопрос</a>
+                                    <p>Вы сожете выбрать кто будет отвечать на Ваш вопрос</p>
+                            </div>
+                            <div>
+                                <img src="/design/img/leftThree.png" alt="">
+                                    <a class="head" href="">Предложить работу</a>
+                                    <p>Вы можете опубликовать вакансию, или разовую работу для юристов</p>
+                            </div>
+                            <div id="leftSay"></div>
+                        </div>
+                       <div id="offers">
                             <h2>Предлагаю услуги:</h2>
                              <?php echo $this->action('getsomelawyers', 'index', 'users'); ?>
                         </div>

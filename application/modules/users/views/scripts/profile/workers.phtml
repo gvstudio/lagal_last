@@ -1,0 +1,76 @@
+<div class="personalInfo">
+    <form method="post" action=""> 
+        <p class="title" style="width: 780px;">Пригласите ваших сотрудников</p>
+
+	<table style="width: 780px;  border-spacing: 8px 11px; border-collapse: separate;">
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="name[]" placeholder="Имя"></td>
+		<td><input style="width: 240px;" type="text" class="" name="second_name[]" placeholder="Фамилия"></td>
+		<td><input style="width: 240px;" type="text" class="" name="email[]" placeholder="Ел. почта"></td>
+	    </tr>
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="name[]" placeholder="Имя"></td>
+		<td><input style="width: 240px;" type="text" class="" name="second_name[]" placeholder="Фамилия"></td>
+		<td><input style="width: 240px;" type="text" class="" name="email[]" placeholder="Ел. почта"></td>
+	    </tr>
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="name[]" placeholder="Имя"></td>
+		<td><input style="width: 240px;" type="text" class="" name="second_name[]" placeholder="Фамилия"></td>
+		<td><input style="width: 240px;" type="text" class="" name="email[]" placeholder="Ел. почта"></td>
+	    </tr>
+	</table>
+	<input type="submit" style="margin: 0 0 0 290px;" class="buttonSave" value="Пригласить">
+        <div class="clear">&nbsp;</div>
+        <p class="title" style="width: 780px;">Укажите сотрудников уже зарегистрированных на сайте</p>
+        <table style="width: 530px;  border-spacing: 8px 11px; border-collapse: separate;">
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="email_exist[]" placeholder="Ел. почта"></td>
+		<td><input style="width: 240px;" type="text" class="" name="id[]" placeholder="www.legalmag.ru/user/user"></td>
+	    </tr>
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="email_exist[]" placeholder="Ел. почта"></td>
+		<td><input style="width: 240px;" type="text" class="" name="id[]" placeholder="www.legalmag.ru/user/user"></td>
+	    </tr>
+	    <tr>
+		<td><input style="width: 240px;" type="text" class="" name="email_exist[]" placeholder="Ел. почта"></td>
+		<td><input style="width: 240px;" type="text" class="" name="id[]" placeholder="www.legalmag.ru/user/user"></td>
+	    </tr>
+	</table>
+	<input type="submit" style="margin: 0 0 0 290px;" class="buttonSave" value="Пригласить">
+
+    </form>
+    <p class="title" style="width: 780px;">Ваши сотрудники</p>
+    <section id="center">
+	<div class="wrapper">		
+	    <?php
+	    $count = count($this->lawyers); //Zend_Debug::dump($this->lawyers[0]->name); //echo "dfdf ".$count;die;  
+	    for ($i = 0; $i < $count; $i++) {
+		?>
+    	    <div class="lawyer">
+    		<div class="left">
+    		    <div class="img">
+			    <? /* photo */ ?>	<?php if (empty($this->lawyers[$i]->photo)) { ?>									
+				<a href=""><img src="/design/images/face.jpg" alt=""></a>								
+			    <?php } else { ?>
+				<a href=""><img src="<?php echo $this->lawyers[$i]->photo; ?>" alt=""></a>
+				<? /* end photo */ ?> <?php } ?>
+    		    </div>
+    		    <a href="/user/<?php echo $this->lawyers[$i]->id; ?>"><?php echo $this->lawyers[$i]->name; ?></a>
+    		    <div class="rating">
+    			<img src="/design/images/stars.png" alt="">
+    		    </div>
+    		    <p>Местоположение: Москва</p>
+    		    <p>Специализация: <a href="">семейное право</a></p>
+    		</div>
+
+    		<div class="clear">&nbsp;</div>
+    	    </div>
+	    <?php } ?>
+	</div>
+
+    </section>
+
+
+
+
+</div> 

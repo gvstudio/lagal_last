@@ -1,18 +1,33 @@
-<?php if($this->auth->getIdentity()->count>0) $count=$this->auth->getIdentity()->count;
-else $count=0; 
-  if ($this->auth->hasIdentity()) { ?>
+<?php
+//Zend_Debug::dump($this->auth->getIdentity());die;
+if ($this->auth->getIdentity()->count > 0) {
+    $count = $this->auth->getIdentity()->count;
+} else {
+    $count = 0;
+}
+
+if ($this->auth->getIdentity()->count_actions > 0) {
+    $count_actions = $this->auth->getIdentity()->count_actions;
+} else {
+    $count_actions = 0;
+}
+//Zend_Debug::dump($this->auth->getIdentity()->count_actions);die;
+
+if ($this->auth->hasIdentity()) {
+    ?>
     <div id="user">
         <img src="<?php echo $this->auth->getIdentity()->photo; ?>" alt="">
-        <p class="name"><?php echo $this->auth->getIdentity()->name;?></p>
+        <p class="name"><?php echo $this->auth->getIdentity()->name; ?></p>
         <a class="editProfile" href="<?php echo Rastor_Url::get('profile_edit'); ?>">редактировать профиль</a>
         <p class="myMessages"><a href="/messages">Мои сообщения</a> (<span><?php echo $count; ?></span>)</p>
     </div>
+    <p class="myActions"><a href="/actions">Мои события</a> (<span><?php echo $count_actions; ?></span>)</p>
     <div style="clear:both;"></div>
 <?php } else { ?>
     <div id="userRegister">
         <a href="<?php echo Rastor_Url::get('registration'); ?>">
-            Зарегистрироваться »<br>
-            <span>и задать вопрос</span>
+    	Зарегистрироваться »<br>
+    	<span>и задать вопрос</span>
         </a>
     </div>
 <?php } ?>

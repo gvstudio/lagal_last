@@ -1,5 +1,5 @@
 <?php //echo $this->form;     ?>
-<form id="questionForm" method="post">
+<form id="questionForm" method="post" action="/questions/add">
     <dl>
         <?php echo $this->form->name; ?>
         <?php echo $this->form->content; ?>
@@ -75,18 +75,6 @@
 </form>
 <script type="text/javascript">
     $(document).ready(function(){
-
-	var activli=$('div.body li.checkbox_active input');
-	
-	
-	$('div.body li input').click(function()
-	{
-		if($(this).parent().attr('class') == 'checkbox_active'){
-			$(this).parent().removeClass("checkbox_active");
-		}
-		else $(this).parent().addClass("checkbox_active");		
-		
-	});
         $(".question-amount .slider1").slider({
             value: <?php echo $this->form->price->getValue() ? $this->form->price->getValue() : 90; ?>,
             min: 90,

@@ -7,7 +7,7 @@
         <span class="headSep">&nbsp;</span>
     </div>
     <section class="body">
-        <?php foreach ($this->paginator as $record) { ?>
+        <?php foreach ($this->paginator as $record) { //Zend_Debug::dump($record); ?>
         <div class="question">
             <table>
                 <tr>
@@ -27,7 +27,7 @@
                 </tr>
                 <?php if (count($this->tags[$record->id])) { ?>
                 <tr>
-                    <td class="tags">Теги: <?php echo implode(', ', $this->tags[$record->id]) ?></td>
+                   <!-- <td class="tags">Теги: <?php// echo implode(', ', $this->tags[$record->id]) ?></td> -->
                 </tr>
                 <?php } ?>
             </table>

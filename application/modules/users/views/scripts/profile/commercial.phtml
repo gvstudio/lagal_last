@@ -1,0 +1,65 @@
+
+<script>
+    $(document).ready(function(){
+        $('#tabss ul li').click(function(){
+	    console.log($('#tabs ul li'));
+            if ($(this).attr('id') == '1') {
+                document.location = 'http://legalmag.com/profile/commercial/statistic';
+            } else if ($(this).attr('id') == '2') {
+                document.location = 'http://legalmag.com/profile/commercial/views';
+            } else {
+                //document.location = '';
+            }
+      //  });
+</script>
+<style>
+  #tabss li a {
+float: left;
+width: 100%;
+text-align: center;
+height: 29px;
+padding: 8px 0px 0 0;
+text-decoration: none;  
+  }
+#tabss li {
+border-left: 0;
+margin-left: 1px;
+border: 1px solid #ACA99F;
+border-bottom: 0;
+background: white;
+font-weight: bold;
+font-size: 16px;
+color: #00488C;
+
+width: 32.1%;
+list-style: none;
+float: left;
+margin: 0;
+padding: 0;
+white-space: nowrap;
+font-style: italic;
+
+border: 1px solid #ACA99F;
+border-top: 0;
+background: white;
+color: #333;
+
+border: 1px solid #ACA99F;
+border-bottom: 0;
+background: white;
+font-weight: bold;
+font-size: 16px;
+color: #00488C;
+
+border-top-right-radius: 10px;
+
+</style>
+
+<!-- если чесно я заебался это делать  -->
+<div id="tabss">
+    <ul>
+        <li id="1"><a href="http://legalmag.com/profile/commercial/statistic">Статистика</a></li>
+        <li id="2"><a href="http://legalmag.com/profile/commercial/views">Настройки показов</a></li>
+        <li id="3"><a href="">Виды обьявлений</a></li>
+    </ul>
+</div>

@@ -8,6 +8,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
      * @return Zend_Application_Module_Autoloader
      */
     protected function _initAutoload() {
+	
         $autoLoader = Zend_Loader_Autoloader::getInstance();
         $autoLoader->setFallbackAutoloader(true);
 
@@ -78,6 +79,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
      * @return void 
      */
     protected function _initLocale() {
+	
         $this->bootstrap('Config');
         $front = $this->getResource('FrontController');
         $front->registerPlugin(new Rastor_Translate_Plugin());

@@ -101,4 +101,11 @@ class Users_Model_DbTable_Users extends Rastor_Model_DbTable_Abstract {
 						->where('snetwork = ?',$uid);
 		return $this->getAdapter()->fetchRow($select);
 	}
+	public function getUserByEmail($mail){
+	    $select= $this->select()
+		    ->from($this->_name)
+		    ->where('email = ?',$mail);
+	    
+	    return $this->getAdapter()->fetchRow($select);
+	}
 }
